@@ -1,6 +1,17 @@
-/*hello*/
-header{
-    >nav{
-        @apply bg-gray-200;
-    }
+
+nav{
+    @apply flex flex-row w-full justify-between bg-gray-800 p-4;
+
+        >.nav-wrapper{
+            @apply flex flex-row justify-evenly self-center gap-4 text-gray-300;
+        }
+
+        >.img-wrapper{
+            @apply flex flex-row justify-evenly self-center pr-4 gap-4;
+            >img{
+                @apply rounded-full size-8
+            }
+
+        }
 }
+

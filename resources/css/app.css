@@ -1,6 +1,8 @@
-
-
+/*for imports only*/
 @import 'nav.css';
+@import 'header.css';
+@import 'main.css';
+@import 'default.css';
 
 @tailwind base;
 @tailwind components;

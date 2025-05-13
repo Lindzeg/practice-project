@@ -7,8 +7,8 @@
         @vite(['resources/js/app.js'])
     </head>
     <body>
-        <header>
-             {{ $nav }}
-        </header>
+        {{ $nav }}
+        {{ $header }}
+        {{ $main }}
     </body>
 </html>
