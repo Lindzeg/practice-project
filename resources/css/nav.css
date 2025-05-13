@@ -1,0 +1,6 @@
+/*hello*/
+header{
+    >nav{
+        @apply bg-black;
+    }
+}
