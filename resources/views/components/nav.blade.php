@@ -5,10 +5,9 @@
             <img class="logo" src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500" alt="logo">
         </div>
 
-        <x-nav-link href="/" :active="request()->is('/')">Home</x-nav-link> <!--insert class for active so it's styleable in css-->
+        <x-nav-link href="/" :active="request()->is('/')">Home</x-nav-link>
         <x-nav-link href="/about" :active="request()->is('about')">About</x-nav-link>
         <x-nav-link href="/contact" :active="request()->is('contact')">Contact</x-nav-link>
-        <x-nav-link></x-nav-link>
 
     </div>
 
