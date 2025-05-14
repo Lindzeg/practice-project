@@ -1,15 +1,21 @@
 
 nav{
-    @apply flex flex-row w-full justify-between bg-gray-800 p-4;
+    @apply flex flex-row w-full justify-between bg-gray-800 p-8;
 
         >.nav-wrapper{
-            @apply flex flex-row justify-evenly self-center gap-4 text-gray-300;
+            @apply flex flex-row justify-evenly self-end gap-4 text-gray-300;
+            >a{
+                @apply flex self-center;
+            }
+            >.active{
+                @apply p-2 rounded-md bg-white duration-100 ease-in;
+            }
         }
 
         >.img-wrapper{
             @apply flex flex-row justify-evenly self-center pr-4 gap-4;
             >img{
-                @apply rounded-full size-8
+                @apply rounded-full size-8 object-center
             }
 
         }

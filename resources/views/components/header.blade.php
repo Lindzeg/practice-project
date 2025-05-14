@@ -1,5 +1,6 @@
+@props(['heading'])
 <header>
     <div class="text-container">
-        <h1>Dashboard</h1>
+        <h1 class="heading">{{ $heading }}</h1>
     </div>
 </header>
