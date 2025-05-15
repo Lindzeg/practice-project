@@ -8,6 +8,6 @@
         </x-slot>
 
     <x-slot name="main">
-        <x-main/>
+        <x-main :jobs="$jobs"  />
     </x-slot>
 </x-layout>

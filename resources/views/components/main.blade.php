@@ -2,8 +2,10 @@
 
 <main>
     <section>
-        @foreach ( $jobs as $job )
-            <li>{{ $job['title'] }} : pays {{$job['salary']}}</li>
-        @endforeach
+         @if (isset($jobs))
+            @foreach ( $jobs as $job )
+                <li>{{ $job['title'] }} : pays {{$job['salary']}}</li>
+            @endforeach
+         @endif
     </section>
 </main>

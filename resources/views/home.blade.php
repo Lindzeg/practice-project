@@ -25,8 +25,6 @@
      Then use x-header heading="Homepage" /> and access it in the view with $ heading
 -->
 
-
-
 <x-layout>
 
     <x-slot name="nav">
@@ -38,7 +36,7 @@
         </x-slot>
 
     <x-slot name="main">
-        <x-main :jobs="$jobs"/>
+        <x-main/>
     </x-slot>
 
 </x-layout>
