@@ -1,5 +1,5 @@
+@props(['jobs', 'job'])
 
-
-<main>
-{{ $slot }}
+<main {{ $attributes }}>
+    {{ $slot }}
 </main>

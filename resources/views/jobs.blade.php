@@ -12,7 +12,7 @@
 
             <section>
                 <div class="text-container">
-                    <h2>Don't know wich job would suit you best? See this overview page with details below</h2>
+                    <h2>Don't know which job would suit you best? See this overview page with details below</h2>
                     <p></p>
                 </div>
             </section>
@@ -24,9 +24,8 @@
                             <div class="img-container">
                                 <img src="https://images.pexels.com/photos/5971249/pexels-photo-5971249.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Director">
                                 <li>
-                                    <a href="/job/{{ $job['id']}}"><strong>{{ $job['title'] }}
-                                        </strong>
-                                    </a>
+                                    <a href="/jobs/{{ $job['id']}}"><strong>{{ $job['title'] }}</strong></a>
+                                    <br>
                                     pays {{$job['salary']}} per year
                                 </li>
                             </div>
@@ -34,7 +33,7 @@
                     @endif
                 </div>
             </section>
-            
+
         </x-main>
     </x-slot>
 </x-layout>

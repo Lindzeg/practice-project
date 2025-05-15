@@ -1,5 +1,6 @@
 main{
     @apply flex flex-col w-full h-full p-4;
+    background-color: white ;
     >section{
        @apply h-auto w-full m-auto border p-4 border-gray-200 flex flex-row self-center justify-center;
        >.img-slider{
@@ -18,3 +19,18 @@ main{
     }
 }
 
+main.job{
+    @apply h-full p-4 flex flex-col justify-center items-center;
+    >.img-container{
+        @apply w-[18rem] h-[25rem];
+            >img{
+                @apply h-full w-full;
+            }
+        }
+    >.text-container{
+        @apply text-center;
+        h2{
+
+        }
+    }
+}
