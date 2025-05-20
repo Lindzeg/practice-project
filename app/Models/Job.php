@@ -5,21 +5,22 @@ use Illuminate\Support\Arr;
 
 class Job {
     public static function all(): array {
+        //return an array with job listings
         return [
             [
                 "id"=> "1",
                 "title" => "Director",
-                "salary" => "50 000",
+                "salary" => "Є50.000",
             ],
             [
                 "id" => "2",
                 "title" => "Programmer",
-                "salary" => "Є10 000",
+                "salary" => "Є10.000",
             ],
             [
                 "id" => "3",
                 "title" => "Teacher",
-                "salary" => "Є40 000",
+                "salary" => "Є40.000",
             ],
             [
                 "id" => "4",
@@ -42,8 +43,8 @@ class Job {
 
     public static function find(int $id): array
     {
+    // find a job by id, abort if not found
         $job = Arr::first(static::all(), fn($job) => $job['id'] == $id);
-
         if (!$job) {
             abort(404);
         }

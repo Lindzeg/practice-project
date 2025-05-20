@@ -8,7 +8,8 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "vite build"
+    "build": "vite build",
+    "mjml": "mjml resources/mjml -o resources/views/emails"
   },
   "keywords": [],
   "author": "",
@@ -20,5 +21,8 @@
     "postcss-nesting": "^13.0.1",
     "tailwindcss": "^3.4.17",
     "vite": "^6.3.5"
+  },
+  "dependencies": {
+    "mjml": "^4.15.3"
   }
 }

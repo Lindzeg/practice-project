@@ -1,0 +1,51 @@
+<mjml>
+  <mj-body background-color="#dcddde">
+  <mj-wrapper background-color="#ffffff" padding="0">
+
+        <mj-section padding="10px" background-color="#101112">
+            <mj-column width="300px">
+                <mj-image align="center" alt="placeholder" width="300px" height="100px"  src="https://www.tippelstraat.nl/escort2/img/escorts-logo.png"> </mj-image>
+            </mj-column>
+        </mj-section>
+
+        <mj-section padding="20px">
+            <mj-column width="100%">
+                <mj-spacer height="25px"> </mj-spacer>
+
+                <mj-text font-size="18px" color="#393b3d" >Hallo {{ $this->user->nickname ?? ''}}, </mj-text>
+                <mj-spacer height="25px"> </mj-spacer>
+
+                <mj-text font-size="18px" color="#393b3d"> Escort Superkutje heeft je een bericht gestuurd</mj-text>
+                <mj-spacer height="25px"> </mj-spacer>
+
+                <mj-text font-size="18px" color="#393b3d"> Om het bericht te zien, klik op de onderstaande link</mj-text>
+                <mj-spacer height="25px"> </mj-spacer>
+
+                <mj-button background-color="#f28e02" width="300px" font-size="18px" height="40px" color="#ffffff" href="{{$url}}">Bekijk berichten</mj-button>
+                <mj-spacer height="25px"> </mj-spacer>
+
+                <mj-text font-size="18px" color="#393b3d">Met vriendelijke groeten,</mj-text>
+
+            </mj-column>
+
+            <mj-column width="100%">
+                <mj-text font-size="18px"  color="#393b3d" align="left">
+                    <p>Managment <a href="https://tippelstraat.be" style="color: #000000; text-decoration: underline;">Tippelstraat.be </a> </p>
+                </mj-text>
+            </mj-column>
+        </mj-section>
+
+    </mj-wrapper>
+
+        <mj-wrapper>
+        <mj-section>
+                <mj-column>
+                    <mj-spacer height="25px"> </mj-spacer>
+                    <mj-button href="{{}}" background-color="#dcddde" text-decoration="underline" color="black" font-size="16px"> Geen of minder mails ontvangen? Klik dan hier.</mj-button>
+                </mj-column>
+            </mj-section>
+        </mj-wrapper>
+
+  </mj-body>
+
+</mjml>
