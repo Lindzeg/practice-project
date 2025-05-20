@@ -2,29 +2,38 @@ main{
     @apply flex flex-col w-full h-full p-4;
     background-color: white ;
     >section{
-       @apply h-auto w-full m-auto  p-4  flex flex-row self-center justify-center;
-       >.img-slider{
-        @apply  h-[35rem] w-[70rem] flex flex-row gap-4 overflow-x-scroll justify-center items-center;
-        >.img-container{
-            @apply flex flex-col gap-3 h-[25rem] w-[15rem] items-center flex-shrink-0;
-            >img{
-                @apply h-[25rem] w-[35rem];
-            }
-            >li{
-                @apply text-center text-lg list-none;
-            }
-        }
+       @apply h-auto w-full m-auto  p-4 bg-gray-400 flex flex-row self-center justify-center;
+        >.img-slider{
+            @apply  h-[35rem] w-[80rem] flex flex-row gap-4 overflow-x-scroll justify-start items-center ;
+            >.slide{
+                @apply flex flex-col gap-3 flex-shrink-0;
 
-       }
+                >.img-container{
+                    @apply  h-[25rem] w-[15rem] items-center;
+                    >img{
+                        @apply h-full w-full object-cover;
+                    }
+                }
+
+                >li{
+                    @apply text-center text-lg list-none;
+                }
+
+            }
+            .slide:hover{
+                    @apply cursor-pointer scale-105 ease-in-out duration-150;
+                }
+        }
     }
 }
 
+
 main.job{
-    @apply h-full p-4 flex flex-col justify-center items-center;
+    @apply h-full p-4 gap-4 flex flex-col justify-center items-center;
     >.img-container{
         @apply w-[18rem] h-[25rem];
             >img{
-                @apply h-full w-full;
+                @apply h-full w-full object-cover;
             }
         }
     >.text-container{

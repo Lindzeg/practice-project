@@ -11,7 +11,7 @@
     <x-slot name="main">
         <x-main class="job" :job="$job">
             <div class="img-container">
-                <img src="https://images.pexels.com/photos/5971249/pexels-photo-5971249.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Director">
+                <img src="{{ asset('storage/' . $job->img_path) }}" alt="{{ $job['title'] }}">
             </div>
             <div class="text-container">
                 <h2>{{ $job['title']}}</h2>

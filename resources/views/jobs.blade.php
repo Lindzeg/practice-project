@@ -21,16 +21,31 @@
                 <div class="img-slider">
                     @if (isset($jobs))
                         @foreach ( $jobs as $job )
+                        <div class="slide">
                             <div class="img-container">
-                                <img src="https://images.pexels.com/photos/5971249/pexels-photo-5971249.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Director">
+                                <img src="{{ asset('storage/' . $job->img_path) }}" alt={{ $job['title'] }}>
+                            </div>
                                 <li>
                                     <a href="/jobs/{{ $job['id']}}"><strong>{{ $job['title'] }}</strong></a>
                                     <br>
                                     pays {{$job['salary']}} per year
                                 </li>
                             </div>
+
                         @endforeach
                     @endif
+                </div>
+            </section>
+
+            <section>
+                <div class="job-wrapper">
+                    <ul>
+                        <li>
+                            <h3></h3>
+                            <p></p>
+                            <datetime> </datetime>
+                        </li>
+                    </ul>
                 </div>
             </section>
 

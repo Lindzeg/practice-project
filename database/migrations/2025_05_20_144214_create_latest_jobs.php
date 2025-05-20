@@ -10,17 +10,15 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up(): void
-{
-    if (!Schema::hasTable('job_listings')) {
-        Schema::create('job_listings', function (Blueprint $table) {
+    {
+        Schema::create('latest_jobs', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('salary');
-            $table->string('img_path');
+            $table->string('job_info');
+            $table->date('post_time');
             $table->timestamps();
         });
     }
-}
 
     /**
      * Reverse the migrations.
