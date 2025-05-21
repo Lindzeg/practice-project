@@ -8,12 +8,19 @@
         </x-slot>
 
     <x-slot name="main">
-        <x-main :jobs="$jobs">
+        <x-main
+            :jobs="$jobs"
+            :vacancies="$vacancies"
+        >
 
             <section>
                 <div class="text-container">
-                    <h2>Don't know which job would suit you best? See this overview page with details below</h2>
-                    <p></p>
+                    <h2>Choosing a New Job: A Practical Decision with Long-Term Impact.</h2>
+                    <p>Selecting a new job is a significant decision that involves carefulconsideration of both short-term needs and long-term goals.
+                        Practical factors such as salary, job stability, benefits, and location play a central role, but it's equally important to assess the company’s culture,
+                        opportunities for advancement, and alignment with your skill set.
+                        Researching the organization, asking the right questions during interviews, and seeking feedback from current or former employees can provide valuable insights.
+                        A well-chosen job not only supports financial security but also contributes to professional development and job satisfaction over time.</p>
                 </div>
             </section>
 
@@ -37,14 +44,18 @@
                 </div>
             </section>
 
-            <section>
-                <div class="job-wrapper">
+            <section id="vacancy">
+                <div class="vacancy-wrapper">
+                    <h2>Job openings</h2>
                     <ul>
-                        <li>
-                            <h3></h3>
-                            <p></p>
-                            <datetime> </datetime>
-                        </li>
+                        @foreach ( $vacancies as $vacancy)
+
+                            <li>
+                                <h3>{{$vacancy['title']}}</h3>
+                                <p>{{$vacancy['job_info']}}</p>
+                                <datetime>Posted at: {{$vacancy['created_at']}} </datetime>
+                            </li>
+                        @endforeach
                     </ul>
                 </div>
             </section>

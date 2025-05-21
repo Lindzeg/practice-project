@@ -15,8 +15,8 @@ return new class extends Migration
         Schema::create('job_listings', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('salary');
-            $table->string('img_path');
+            $table->decimal('salary', 8, 2);
+            $table->string('img_path')->nullable();
             $table->timestamps();
         });
     }
