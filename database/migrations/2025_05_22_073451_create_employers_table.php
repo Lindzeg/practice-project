@@ -10,23 +10,19 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up(): void
-{
-    if (!Schema::hasTable('job_listings')) {
-        Schema::create('job_listings', function (Blueprint $table) {
+    {
+        Schema::create('employers', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->decimal('salary', 8, 2);
-            $table->string('img_path')->nullable();
+            $table->string('name');
             $table->timestamps();
         });
     }
-}
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('employers');
     }
 };
