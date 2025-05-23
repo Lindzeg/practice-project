@@ -49,7 +49,6 @@
                     <h2>Job openings</h2>
                     <ul>
                         @foreach ( $vacancies as $vacancy)
-
                             <li>
                                 <h3>{{$vacancy['title']}}</h3>
                                 <p>{{$vacancy['job_info']}}</p>

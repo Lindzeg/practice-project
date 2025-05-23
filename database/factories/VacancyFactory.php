@@ -1,7 +1,7 @@
 <?php
 
 namespace Database\Factories;
-use App\Models\Vacancy;
+use App\Models\Employer;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -19,7 +19,8 @@ class VacancyFactory extends Factory
         return [
             'title'=>fake()->jobTitle(),
             'job_info'=>fake()->paragraph(),
-            'created_at'=> '21-05-2025',
+            'employer_id'=> Employer::factory(),
+            'created_at'=> now(),
         ];
     }
 }

@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('job_info');
+            //make a foreign key for and link it to employer table. Then delete related records.
+            $table->foreignIdFor(\App\Models\Employer::class)->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

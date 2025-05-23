@@ -15,7 +15,6 @@ return new class extends Migration
         Schema::create('job_listings', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->foreignIdFor(\App\Models\Employer::class);
             $table->string('title');
             $table->decimal('salary', 8, 2);
             $table->string('img_path')->nullable();
