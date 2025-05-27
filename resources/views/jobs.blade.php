@@ -12,7 +12,6 @@
             :jobs="$jobs"
             :vacancies="$vacancies"
         >
-
             <section>
                 <div class="text-container">
                     <h2>Choosing a New Job: A Practical Decision with Long-Term Impact.</h2>
@@ -47,18 +46,23 @@
             <section id="vacancy">
                 <div class="vacancy-wrapper">
                     <h2>Job openings</h2>
-                    <ul>
-                        @foreach ( $vacancies as $vacancy)
-                            <li>
-                                <h3>{{$vacancy['title']}}</h3>
-                                <p>{{$vacancy['job_info']}}</p>
-                                <datetime>Posted at: {{$vacancy['created_at']}} </datetime>
-                            </li>
-                        @endforeach
-                    </ul>
-                </div>
-            </section>
 
+                        <ul x-data="{ open: false }"> <!--set open to false-->
+                            <!--for each vacancy, take first 3 from array-->
+                            @if(isset($vacancies))
+                                @foreach ($chunk = $vacancies->take(3) as $vacancy)
+                                    <li>
+                                        <h3>{{$vacancy['title']}}</h3>
+                                        <p>{{$vacancy['job_info']}}</p>
+                                        <datetime>Posted at: {{$vacancy['created_at']}} <br> by: {{$vacancy->employer['company_name']}} </datetime>
+                                    </li>
+                                @endforeach
+                            @endif
+                            <!--button shows all vacancies-->
+                            <button x-on:click="open = ! open"> Show more </button>
+                        </ul>
+                    </div>
+                </section>
         </x-main>
     </x-slot>
 </x-layout>

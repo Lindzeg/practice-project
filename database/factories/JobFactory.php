@@ -20,8 +20,6 @@ class JobFactory extends Factory
             'name' => fake()->company(),
             'title' => fake()->jobTitle(),
             'salary' => fake()->randomFloat(2,30000, 100000),
-            //Whenever you generate a job, you also want to generate corresponding relationships like a foreign id for Employer
-            'employer_id'=> Employer::factory(),
             'img_path' => fake()->url(),
         ];
     }
