@@ -19,11 +19,9 @@ class Vacancy extends Model
 
      public function employer()
     {
-        // a vacancy can only have one assigned employer
+        //a vacancy can only have one assigned employer
         return $this->belongsTo(Employer::class);
     }
-
-
 
 
 }

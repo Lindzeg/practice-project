@@ -11,6 +11,9 @@
         <x-main
             :jobs="$jobs"
             :vacancies="$vacancies"
+            :firstVacancies="$firstVacancies"
+            :otherVacancies="$otherVacancies"
+
         >
             <section>
                 <div class="text-container">
@@ -46,19 +49,29 @@
             <section id="vacancy">
                 <div class="vacancy-wrapper">
                     <h2>Job openings</h2>
-
-                        <ul x-data="{ open: false }"> <!--set open to false-->
-                            <!--for each vacancy, take first 3 from array-->
+                    {{--Initialize Alpine.js with 'open' set to false--}}
+                        <ul x-data="{ open: false }">
+                            {{--loop over first 3 vacancies--}}
                             @if(isset($vacancies))
-                                @foreach ($chunk = $vacancies->take(3) as $vacancy)
+                                @foreach ($firstVacancies as $vacancy)
                                     <li>
                                         <h3>{{$vacancy['title']}}</h3>
                                         <p>{{$vacancy['job_info']}}</p>
                                         <datetime>Posted at: {{$vacancy['created_at']}} <br> by: {{$vacancy->employer['company_name']}} </datetime>
                                     </li>
                                 @endforeach
-                            @endif
-                            <!--button shows all vacancies-->
+                                {{-- When the button is pressed, open is set to true, and loops over all other available vacancies --}}
+                                @foreach ($otherVacancies as $vacancy)
+                                  <template x-if="open">
+                                    <li>
+                                        <h3>{{$vacancy['title']}}</h3>
+                                        <p>{{$vacancy['job_info']}}</p>
+                                        <datetime>Posted at: {{$vacancy['created_at']}} <br> by: {{$vacancy->employer['company_name']}} </datetime>
+                                    </li>
+                                  </template>
+                                @endforeach
+                             @endif
+                            {{--button shows remaining vacancies--}}
                             <button x-on:click="open = ! open"> Show more </button>
                         </ul>
                     </div>

@@ -1,4 +1,4 @@
-@props(['jobs', 'job', 'vacancies'])
+@props(['jobs', 'job', 'vacancies', 'firstVacancies' ,'otherVacancies'])
 
 <main {{ $attributes }}>
     {{ $slot }}

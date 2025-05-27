@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Arr;
 use App\Models\Job;
 use App\Models\Vacancy;
-use App\Controllers\VacancyController;
+use App\Http\Controllers\VacancyController;
 
 Route::get('/', function () {
     return view('home');
@@ -14,14 +14,8 @@ Route::get('/contact', function () {
     return view('contact');
 });
 
-Route::get('/jobs', function ()  {
-        return view('jobs', [
-            'jobs' => Job::getAllJobs(),
-            'vacancies' => Vacancy::getAllVacancies(),
-    ]);
-
-
-});
+//returns te index class in VacancyController
+Route::get('/jobs', [VacancyController::class, 'index']);
 
 Route::get('/jobs/{id}', function ($id) {
     $job = Job::find($id);
