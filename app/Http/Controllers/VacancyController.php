@@ -18,8 +18,7 @@ class VacancyController extends Controller
         $firstVacancies = $vacancies->take(3);
         //take all other vacancies except the first 3
         $otherVacancies = $vacancies->slice(3);
-        // dd($firstVacancies);
-        // dd($otherVacancies);
+ 
         return view('jobs',[
             'jobs' => Job::getAllJobs(),
             'firstVacancies' => $firstVacancies,

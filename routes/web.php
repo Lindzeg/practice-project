@@ -18,7 +18,7 @@ Route::get('/contact', function () {
 Route::get('/jobs', [VacancyController::class, 'index']);
 
 Route::get('/jobs/{id}', function ($id) {
-    $job = Job::find($id);
+    $job = Job::getAllJobs()->find($id);
 
     return view('job', [
         'job' => $job,

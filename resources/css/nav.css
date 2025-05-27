@@ -10,6 +10,13 @@ nav{
             >.active{
                 @apply p-2 rounded-md bg-white duration-100 ease-in;
             }
+            >.img-container{
+                @apply w-[3rem] h-[3rem];
+                >.logo{
+                    @apply w-full h-full;
+                }
+            }
+
         }
 
         >.img-wrapper{

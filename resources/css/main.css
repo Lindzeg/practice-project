@@ -55,21 +55,36 @@ main{
                         @apply font-[arial] text-white font-light;
                     }
                 }
+
+                >button{
+                    @apply p-4 w-1/2 rounded-md self-center bg-indigo-500 text-xl font-bold text-gray-200 hover:w-full duration-150 ease-in-out;
+                }
             }
+
         }
     }
 }
 
 
 main.job{
-    @apply h-full p-4 gap-4 flex flex-col justify-center items-center;
+    @apply h-[80%] w-full p-4 gap-4 flex flex-row-reverse justify-center items-start;
     >.img-container{
-        @apply w-[18rem] h-[25rem];
+        @apply w-full h-[90%] flex flex-col gap-8 p-8 items-center justify-center;
+            background:linear-gradient(#4d7bf7 10%, #4030d3 90%);
             >img{
-                @apply h-full w-full object-cover;
+                @apply h-full w-1/2 object-cover rounded-lg shadow-lg;
+            }
+            >a{
+                @apply self-start justify-self-end  text-white text-lg uppercase font-bold hover:cursor-pointer hover:animate-pulse;
             }
         }
     >.text-container{
-        @apply text-center;
+        @apply w-1/2 text-left flex flex-col gap-4 ;
+        >h2{
+            @apply text-6xl;
+        }
+        >p{
+            @apply font-[arial]
+        }
     }
 }
