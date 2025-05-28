@@ -19,7 +19,7 @@
                 <h3>Job discription</h3>
                 <br>
                 <p>{{$job['job_discription']}}</p>
-                <p>The estemete salary for this job is around €{{$job['salary'] }} per year. </p>
+                <p>The estimate salary for this job is around €{{$job['salary'] }} per year. </p>
             </div>
         </x-main>
     </x-slot>

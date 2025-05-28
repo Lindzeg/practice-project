@@ -14,15 +14,20 @@
             :firstVacancies="$firstVacancies"
             :otherVacancies="$otherVacancies"
 
+
         >
             <section>
                 <div class="text-container">
                     <h2>Choosing a New Job: A Practical Decision with Long-Term Impact.</h2>
-                    <p>Selecting a new job is a significant decision that involves carefulconsideration of both short-term needs and long-term goals.
-                        Practical factors such as salary, job stability, benefits, and location play a central role, but it's equally important to assess the company’s culture,
+                    <p>Selecting a new job is a significant decision that involves carefulconsideration of both short-term needs and
+                        long-term goals.
+                        Practical factors such as salary, job stability, benefits, and location play a central role,
+                        but it's equally important to assess the company’s culture,
                         opportunities for advancement, and alignment with your skill set.
-                        Researching the organization, asking the right questions during interviews, and seeking feedback from current or former employees can provide valuable insights.
-                        A well-chosen job not only supports financial security but also contributes to professional development and job satisfaction over time.</p>
+                        Researching the organization, asking the right questions during interviews,
+                        and seeking feedback from current or former employees can provide valuable insights.
+                        A well-chosen job not only supports financial security but also contributes to professional development and
+                        job satisfaction over time.</p>
                 </div>
             </section>
 
@@ -46,7 +51,7 @@
                 </div>
             </section>
 
-            <section id="vacancy">
+            <section class="vacancy">
                 <div class="vacancy-wrapper">
                     <h2>Job openings</h2>
                     {{--Initialize Alpine.js with 'open' set to false--}}
@@ -59,7 +64,35 @@
                                         <p>{{$vacancy['job_info']}}</p>
                                         <datetime>Posted at: {{$vacancy['created_at']}} <br> by: {{$vacancy->employer['company_name']}} </datetime>
                                     </li>
+                                    <div class="expand">
+                                        <h2>Vacancy title</h2>
+                                        <div class="heading">
+                                            <img id="logo" src="{{ asset('storage/img/plcholder.png') }}" alt="logo">
+                                            <button>Apply for the job</button>
+                                        </div>
+                                        <div class="vacancy-details">
+                                            <ul>
+                                                <li class="row">
+                                                    <img src="{{ asset('storage/' . $vacancy->img_path) }}" alt="{{ $vacancy['job_details'] }}">
+                                                    <p>{{ $vacancy['job_details'] }}</p>
+                                                </li>
+                                            </ul>
+
+                                        </div>
+
+                                        <div class="function-discription">
+                                            <div class="text-container">
+                                                <h2>About the function</h2>
+                                                <p>{{$vacancy['about_job']}}</p>
+                                            </div>
+                                            <div class="text-container">
+                                                <h2>Function discription</h2>
+                                                <p>{{$vacancy['job_discription']}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
                                 @endforeach
+
                                 {{-- When the button is pressed, open is set to true, and loops over all other available vacancies --}}
                                 @foreach ($otherVacancies as $vacancy)
                                   <template x-if="open">
@@ -69,6 +102,35 @@
                                         <datetime>Posted at: {{$vacancy['created_at']}} <br> by: {{$vacancy->employer['company_name']}} </datetime>
                                     </li>
                                   </template>
+
+                                  <div class="expand">
+                                    <h2>Vacancy title</h2>
+                                    <div class="heading">
+                                        <img id="logo" src="{{ asset('storage/img/plcholder.png') }}" alt="logo">
+                                        <button>Apply for the job</button>
+                                    </div>
+                                    <div class="vacancy-details">
+                                        <ul>
+                                            <li class="row">
+                                                <img src="{{ asset('storage/' . $vacancy->img_path) }}" alt="money">
+                                                <p>Salary</p>
+                                            </li>
+                                        </ul>
+
+                                    </div>
+
+                                    <div class="function-discription">
+                                        <div class="text-container">
+                                            <h2>About the function</h2>
+                                            <p>{{$vacancy['about_job']}}</p>
+                                        </div>
+                                        <div class="text-container">
+                                            <h2>Function discription</h2>
+                                            <p>{{$vacancy['job_discription']}}</p>
+                                        </div>
+                                    </div>
+
+                                </div>
                                 @endforeach
                              @endif
                             {{--button shows remaining vacancies--}}
