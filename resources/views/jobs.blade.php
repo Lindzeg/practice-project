@@ -13,6 +13,7 @@
             :vacancies="$vacancies"
             :firstVacancies="$firstVacancies"
             :otherVacancies="$otherVacancies"
+            :vacancyDetails="$vacancyDetails"
         >
             <section>
                 <div class="text-container">
@@ -62,7 +63,7 @@
                                         <p>{{$vacancy['job_info']}}</p>
                                         <datetime>Posted at: {{$vacancy['created_at']}} <br> by: {{$vacancy->employer['company_name']}} </datetime>
                                     </li>
-                                {{-- <div class="expand">
+                                <div class="expand">
                                         <h2>Vacancy title</h2>
                                         <div class="heading">
                                             <img id="logo" src="{{ asset('storage/img/plcholder.png') }}" alt="logo">
@@ -71,10 +72,12 @@
 
                                         <div class="vacancy-details">
                                             <ul>
-                                                <li class="row">
-                                                    <img src="{{ asset('storage/' . $vacancy->img_path) }}" alt="{{ $vacancy['job_details'] }}">
-                                                    <p>{{ $vacancy['job_details'] }}</p>
-                                                </li>
+                                                @foreach ($vacancyDetails as $detail)
+                                                    <li class="row">
+                                                        <img src="{{ asset('storage/' . $detail->img_path) }}" alt="{{ $detail['job_details'] }}">
+                                                        <p>{{ $detail['vacancie_details'] }}</p>
+                                                    </li>
+                                                @endforeach
                                             </ul>
 
                                         </div>
@@ -89,7 +92,7 @@
                                                 <p>{{$vacancy['job_discription']}}</p>
                                             </div>
                                         </div>
-                                    </div> --}}
+                                    </div>
                                 @endforeach
 
                                 {{-- When the button is pressed, open is set to true, and loops over all other available vacancies --}}
