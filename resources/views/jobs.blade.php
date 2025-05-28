@@ -13,8 +13,6 @@
             :vacancies="$vacancies"
             :firstVacancies="$firstVacancies"
             :otherVacancies="$otherVacancies"
-
-
         >
             <section>
                 <div class="text-container">
@@ -64,12 +62,13 @@
                                         <p>{{$vacancy['job_info']}}</p>
                                         <datetime>Posted at: {{$vacancy['created_at']}} <br> by: {{$vacancy->employer['company_name']}} </datetime>
                                     </li>
-                                    <div class="expand">
+                                {{-- <div class="expand">
                                         <h2>Vacancy title</h2>
                                         <div class="heading">
                                             <img id="logo" src="{{ asset('storage/img/plcholder.png') }}" alt="logo">
                                             <button>Apply for the job</button>
                                         </div>
+
                                         <div class="vacancy-details">
                                             <ul>
                                                 <li class="row">
@@ -90,7 +89,7 @@
                                                 <p>{{$vacancy['job_discription']}}</p>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                 @endforeach
 
                                 {{-- When the button is pressed, open is set to true, and loops over all other available vacancies --}}
@@ -102,36 +101,10 @@
                                         <datetime>Posted at: {{$vacancy['created_at']}} <br> by: {{$vacancy->employer['company_name']}} </datetime>
                                     </li>
                                   </template>
-
-                                  <div class="expand">
-                                    <h2>Vacancy title</h2>
-                                    <div class="heading">
-                                        <img id="logo" src="{{ asset('storage/img/plcholder.png') }}" alt="logo">
-                                        <button>Apply for the job</button>
-                                    </div>
-                                    <div class="vacancy-details">
-                                        <ul>
-                                            <li class="row">
-                                                <img src="{{ asset('storage/' . $vacancy->img_path) }}" alt="money">
-                                                <p>Salary</p>
-                                            </li>
-                                        </ul>
-
-                                    </div>
-
-                                    <div class="function-discription">
-                                        <div class="text-container">
-                                            <h2>About the function</h2>
-                                            <p>{{$vacancy['about_job']}}</p>
-                                        </div>
-                                        <div class="text-container">
-                                            <h2>Function discription</h2>
-                                            <p>{{$vacancy['job_discription']}}</p>
-                                        </div>
-                                    </div>
-
-                                </div>
                                 @endforeach
+
+
+
                              @endif
                             {{--button shows remaining vacancies--}}
                             <button x-on:click="open = ! open"> Show more </button>
