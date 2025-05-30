@@ -54,17 +54,20 @@ main{
                     >datetime{
                         @apply font-[arial] text-white font-light;
                     }
+                    >p#open{
+                        @apply hover:underline hover:font-bold hover:text-indigo-200;
+                    }
                 }
 
                 >button{
                     @apply p-4 w-1/2 rounded-md self-center bg-indigo-500 text-xl font-bold text-gray-200 hover:w-full
                     duration-150 ease-in-out;
                 }
-
+                
                 >.expand{
-                    @apply bg-gray-500 w-full h-auto p-4 rounded-md flex flex-col;
+                    @apply bg-purple-100 w-full h-auto p-4 rounded-md flex flex-col;
                     >.heading{
-                        @apply flex flex-row gap-12 items-center justify-start;
+                        @apply flex flex-row gap-12 items-center p-4 justify-start;
                             >#logo{
                                 @apply h-10 w-10;
                             }
@@ -74,18 +77,34 @@ main{
                     }
 
                     >.vacancy-details{
-                        @apply flex flex-row gap-40 justify-center h-auto w-full bg-white p-4;
+                        @apply flex flex-row gap-40 justify-start h-auto w-full p-4;
                         >ul{
-                            @apply flex gap-4 flex-col w-full;
+                            @apply flex gap-4 flex-row h-auto w-full;
                             >.row{
-                                @apply flex flex-row h-auto w-auto bg-indigo-200 gap-12 items-center justify-start;
+                                @apply flex flex-col h-auto w-auto w-1/2 bg-indigo-200 gap-4 items-center justify-start;
 
                                 >img{
-                                    @apply w-10 h-10;
+                                    @apply w-7 h-7;
+                                }
+                                >p{
+                                    @apply text-sm;
                                 }
                             }
                         }
 
+                    }
+                    >.function-discription{
+                        @apply flex flex-col gap-8 justify-start items-start;
+
+                        >.text-container{
+                            @apply flex flex-col gap-4 font-[arial] ;
+                            >h2{
+                               @apply text-lg font-bold self-start;
+                            }
+                            >p{
+                                @apply text-base text-left;
+                            }
+                        }
                     }
                 }
             }
