@@ -15,22 +15,13 @@
             :otherVacancies="$otherVacancies"
             :vacancyDetails="$vacancyDetails"
         >
-            <section>
+            <section class="heading">
                 <div class="text-container">
                     <h2>Choosing a New Job: A Practical Decision with Long-Term Impact.</h2>
-                    <p>Selecting a new job is a significant decision that involves carefulconsideration of both short-term needs and
-                        long-term goals.
-                        Practical factors such as salary, job stability, benefits, and location play a central role,
-                        but it's equally important to assess the company’s culture,
-                        opportunities for advancement, and alignment with your skill set.
-                        Researching the organization, asking the right questions during interviews,
-                        and seeking feedback from current or former employees can provide valuable insights.
-                        A well-chosen job not only supports financial security but also contributes to professional development and
-                        job satisfaction over time.</p>
                 </div>
             </section>
 
-            <section>
+            <section class="slider">
                 <div class="img-slider">
                     @if (isset($jobs))
                         @foreach ( $jobs as $job )
@@ -58,20 +49,17 @@
                             {{--loop over first 3 vacancies--}}
                             @if(isset($vacancies))
                                 @foreach ($firstVacancies as $vacancy)
-                                <li x-data="{toggle: false}" x-bind:class="{ 'toggle' : toggle }">
+                                <li x-data="{toggle: false}" x-bind:class="{ 'toggle' : toggle }" >
 
-                                    <div class="vacancy-item" x-on:click="toggle = ! toggle " role="button" >
+                                    <div class="vacancy-item" x-on:click="toggle = ! toggle" role="button">
                                         <h3>{{$vacancy['title']}}</h3>
                                         <p>{{$vacancy['job_info']}}</p>
                                         <datetime>Posted at: {{$vacancy['created_at']}} <br> by: {{$vacancy->employer['company_name']}} </datetime>
                                     </div>
 
-                                    <div class="expand" x-show="toggle ">
+                                    <div class="expand" x-show="toggle"  x-transition.enter.duration.400ms x-transition.leave.duration.500ms>
                                         <h2>Vacancy title</h2>
-                                        <div class="heading">
-                                            <img id="logo" src="{{ asset('storage/img/plcholder.png') }}" alt="logo">
-                                            <button>Apply for the job</button>
-                                        </div>
+
                                         <div class="vacancy-details">
                                             <ul>
                                                 @foreach ($vacancyDetails as $detail)
@@ -82,6 +70,7 @@
                                                 @endforeach
                                             </ul>
                                         </div>
+
                                         <div class="function-discription">
                                             <div class="text-container">
                                                 <h2>About the function</h2>
@@ -92,6 +81,9 @@
                                                 <p>{{$vacancy['job_discription']}}</p>
                                             </div>
                                         </div>
+                                        <div class="footing">
+                                            <button>Apply for the job</button>
+                                        </div>
                                     </div>
                                 </li>
                                 @endforeach
@@ -99,18 +91,20 @@
                                 {{-- When the button is pressed, open is set to true, and loops over all other available vacancies --}}
                                 @foreach ($otherVacancies as $vacancy)
                                   <template x-if="open">
-                                    <li x-on:click="toggle" role="button">
-                                        <h3>{{$vacancy['title']}}</h3>
-                                        <p>{{$vacancy['job_info']}}</p>
-                                        <datetime>Posted at: {{$vacancy['created_at']}} <br> by: {{$vacancy->employer['company_name']}} </datetime>
-                                        <p id="open" x-on:click="open">See more</p>
+                                    <li x-data="{ toggle: false }" :class="{ 'toggle': toggle }">
+                                        <div class="vacancy-item" x-on:click="toggle = !toggle" role="button">
+                                            <h3>{{ $vacancy['title'] }}</h3>
+                                            <p>{{ $vacancy['job_info'] }}</p>
+                                            <datetime>
+                                                Posted at: {{ $vacancy['created_at'] }} <br>
+                                                by: {{ $vacancy->employer['company_name'] }}
+                                            </datetime>
+                                        </div>
 
-                                        <div class="expand" x-show="open">
+                                        <!-- En dit zit nog steeds in hetzelfde <li> -->
+                                        <div class="expand" x-show="toggle" x-transition.enter.duration.400ms x-transition.leave.duration.500ms>
                                             <h2>Vacancy title</h2>
-                                            <div class="heading">
-                                                <img id="logo" src="https://e7.pngegg.com/pngimages/779/61/png-clipart-logo-idea-cute-eagle-leaf-logo.png" alt="logo">
-                                                <button>Apply for the job</button>
-                                            </div>
+
 
                                             <div class="vacancy-details">
                                                 <ul>
@@ -121,56 +115,25 @@
                                                         </li>
                                                     @endforeach
                                                 </ul>
-
                                             </div>
 
                                             <div class="function-discription">
                                                 <div class="text-container">
                                                     <h2>About the function</h2>
-                                                    <p>{{$vacancy['about_job'] }}
-                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tincidunt nibh nec mollis malesuada. </p>
+                                                    <p>{{ $vacancy['about_job'] }}</p>
                                                 </div>
                                                 <div class="text-container">
                                                     <h2>Function discription</h2>
-                                                    <p>{{$vacancy['job_info']}}</p>
+                                                    <p>{{ $vacancy['job_discription'] }}</p>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </li>
-                                  </template>
 
-                                  <template x-if="open">
-                                     <li class="expand" x-show="toggle">
-                                        <h2>Vacancy title</h2>
-                                        <div class="heading">
-                                            <img id="logo" src="{{ asset('storage/img/plcholder.png') }}" alt="logo">
-                                            <button>Apply for the job</button>
-                                        </div>
-
-                                        <div class="vacancy-details">
-                                            <ul>
-                                                @foreach ($vacancyDetails as $detail)
-                                                    <li class="row">
-                                                        <img src="{{ asset('storage/' . $detail->img_path) }}" alt="{{ $detail['job_details'] }}">
-                                                        <p>{{ $detail['vacancie_details'] }}</p>
-                                                    </li>
-                                                @endforeach
-                                            </ul>
-
-                                        </div>
-
-                                        <div class="function-discription">
-                                            <div class="text-container">
-                                                <h2>About the function</h2>
-                                                <p>{{$vacancy['about_job']}}</p>
-                                            </div>
-                                            <div class="text-container">
-                                                <h2>Function discription</h2>
-                                                <p>{{$vacancy['job_discription']}}</p>
+                                            <div class="footing">
+                                                <button>Apply for the job</button>
                                             </div>
                                         </div>
                                     </li>
-                                  </template>
+                                </template>
                                 @endforeach
 
                              @endif
@@ -178,7 +141,21 @@
                             <button x-on:click="open = ! open"> Show more </button>
                         </ul>
                     </div>
-                </section>
+
+                    <section class="search">
+                        <form action="">
+                            <h2>Look for a job, close to you.</h2>
+                            <fieldset>
+                                <input type="search" placeholder="Search function">
+                            </fieldset>
+
+                            <fieldset>
+                                <input type="search" placeholder="Search location">
+                            </fieldset>
+                            <button>Search</button>
+                        </form>
+                    </section>
+            </section>
         </x-main>
     </x-slot>
 </x-layout>
