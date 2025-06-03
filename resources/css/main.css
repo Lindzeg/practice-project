@@ -36,58 +36,68 @@ main{
     >section.vacancy{
         @apply flex flex-col items-center p-4 h-auto w-full shadow-lg shadow-gray-300 ;
         >.vacancy-wrapper{
-            @apply p-4 h-[auto] w-1/2 flex flex-col  gap-8;
+            @apply p-4 h-auto w-auto flex flex-col gap-8;
             h2{
                 @apply text-3xl self-center;
             }
             >ul{
-                @apply  w-full h-full flex flex-col gap-8;
-                li{
-                    @apply h-auto flex flex-col justify-center gap-2 rounded-md p-4 bg-gray-800
-                        hover:scale-105 hover:cursor-pointer hover:duration-75 hover:ease-in-out;
-                    >h3{
-                        @apply text-indigo-300;
+                @apply  w-auto h-full flex flex-col gap-8;
+                >li{
+                    @apply flex flex-row w-auto h-1/2 gap-4 justify-center relative;
+                    .vacancy-item{
+                        @apply h-full w-full flex flex-col justify-center gap-2 rounded-md p-4 bg-gray-800
+                            hover:scale-105 hover:cursor-pointer hover:duration-75 hover:ease-in-out;
+                        >h3{
+                            @apply text-indigo-300;
+                        }
+                        >p{
+                            @apply font-[arial] text-white font-light;
+                        }
+                        >datetime{
+                            @apply font-[arial] text-white font-light;
+                        }
                     }
-                    >p{
-                        @apply font-[arial] text-white font-light;
+
+
+                    >.expand{
+                        @apply bg-gray-500 w-[30rem] h-auto p-4 rounded-md flex flex-col ;
+                        >.heading{
+                            @apply flex flex-row gap-12 items-center justify-start;
+                                >#logo{
+                                    @apply h-8 w-8;
+                                }
+                                >button{
+                                    @apply w-1/2 h-14 rounded-md bg-indigo-200;
+                                }
+                        }
+
+                        >.vacancy-details{
+                            @apply flex flex-row gap-40 justify-center h-auto w-full p-4;
+                            >ul{
+                                @apply flex gap-2 flex-row justify-evenly w-full;
+                                >.row{
+                                    @apply flex flex-row h-auto w-1/2 bg-indigo-200 gap-2 items-center justify-start text-base;
+
+                                    >img{
+                                        @apply w-6 h-6;
+                                    }
+                                }
+                            }
+
+                        }
                     }
-                    >datetime{
-                        @apply font-[arial] text-white font-light;
-                    }
+
                 }
 
                 >button{
                     @apply p-4 w-1/2 rounded-md self-center bg-indigo-500 text-xl font-bold text-gray-200 hover:w-full
                     duration-150 ease-in-out;
                 }
-
-                >.expand{
-                    @apply bg-gray-500 w-full h-auto p-4 rounded-md flex flex-col;
-                    >.heading{
-                        @apply flex flex-row gap-12 items-center justify-start;
-                            >#logo{
-                                @apply h-10 w-10;
-                            }
-                            >button{
-                                @apply w-1/4 h-14 rounded-md bg-indigo-200;
-                            }
+                /* styling for when vacancy-item is in toggle state */
+                >.toggle{
+                        @apply bg-green-300;
                     }
 
-                    >.vacancy-details{
-                        @apply flex flex-row gap-40 justify-center h-auto w-full bg-white p-4;
-                        >ul{
-                            @apply flex gap-4 flex-col w-full;
-                            >.row{
-                                @apply flex flex-row h-auto w-auto bg-indigo-200 gap-12 items-center justify-start;
-
-                                >img{
-                                    @apply w-10 h-10;
-                                }
-                            }
-                        }
-
-                    }
-                }
             }
 
         }

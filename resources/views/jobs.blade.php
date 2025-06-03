@@ -54,16 +54,60 @@
                 <div class="vacancy-wrapper">
                     <h2>Job openings</h2>
                     {{--Initialize Alpine.js with 'open' set to false--}}
-                        <ul x-data="{ open: false }">
+                        <ul x-data="{ open: false}" >
                             {{--loop over first 3 vacancies--}}
                             @if(isset($vacancies))
                                 @foreach ($firstVacancies as $vacancy)
-                                    <li>
+                                <li x-data="{toggle: false}" x-bind:class="{ 'toggle' : toggle }">
+
+                                    <div class="vacancy-item" x-on:click="toggle = ! toggle " role="button" >
+                                        <h3>{{$vacancy['title']}}</h3>
+                                        <p>{{$vacancy['job_info']}}</p>
+                                        <datetime>Posted at: {{$vacancy['created_at']}} <br> by: {{$vacancy->employer['company_name']}} </datetime>
+                                    </div>
+
+                                    <div class="expand" x-show="toggle ">
+                                        <h2>Vacancy title</h2>
+                                        <div class="heading">
+                                            <img id="logo" src="{{ asset('storage/img/plcholder.png') }}" alt="logo">
+                                            <button>Apply for the job</button>
+                                        </div>
+                                        <div class="vacancy-details">
+                                            <ul>
+                                                @foreach ($vacancyDetails as $detail)
+                                                    <li class="row">
+                                                        <img src="{{ asset('storage/' . $detail->img_path) }}" alt="{{ $detail['job_details'] }}">
+                                                        <p>{{ $detail['vacancie_details'] }}</p>
+                                                    </li>
+                                                @endforeach
+                                            </ul>
+                                        </div>
+                                        <div class="function-discription">
+                                            <div class="text-container">
+                                                <h2>About the function</h2>
+                                                <p>{{$vacancy['about_job']}}</p>
+                                            </div>
+                                            <div class="text-container">
+                                                <h2>Function discription</h2>
+                                                <p>{{$vacancy['job_discription']}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                @endforeach
+
+                                {{-- When the button is pressed, open is set to true, and loops over all other available vacancies --}}
+                                @foreach ($otherVacancies as $vacancy)
+                                  <template x-if="open">
+                                    <li x-on:click="toggle" role="button">
                                         <h3>{{$vacancy['title']}}</h3>
                                         <p>{{$vacancy['job_info']}}</p>
                                         <datetime>Posted at: {{$vacancy['created_at']}} <br> by: {{$vacancy->employer['company_name']}} </datetime>
                                     </li>
-                                <div class="expand">
+                                  </template>
+
+                                  <template x-if="open">
+                                     <li class="expand" x-show="toggle">
                                         <h2>Vacancy title</h2>
                                         <div class="heading">
                                             <img id="logo" src="{{ asset('storage/img/plcholder.png') }}" alt="logo">
@@ -92,21 +136,9 @@
                                                 <p>{{$vacancy['job_discription']}}</p>
                                             </div>
                                         </div>
-                                    </div>
-                                @endforeach
-
-                                {{-- When the button is pressed, open is set to true, and loops over all other available vacancies --}}
-                                @foreach ($otherVacancies as $vacancy)
-                                  <template x-if="open">
-                                    <li>
-                                        <h3>{{$vacancy['title']}}</h3>
-                                        <p>{{$vacancy['job_info']}}</p>
-                                        <datetime>Posted at: {{$vacancy['created_at']}} <br> by: {{$vacancy->employer['company_name']}} </datetime>
                                     </li>
                                   </template>
                                 @endforeach
-
-
 
                              @endif
                             {{--button shows remaining vacancies--}}
