@@ -1,10 +1,9 @@
 @props(['title'])
 
-    <form action="">
-
+    <form method="POST" action="/jobs">
         <div class="text-container">
             <h2>{{$title}}</h2>
-            <p></p>
+            <p>We just need a handfull of details from you.</p>
         </div>
 
         <fieldset class="job-info">
@@ -14,10 +13,14 @@
             </div>
 
             <div class="wrapper">
-                <label for="job-subtitle">Job subtitle</label>
-                <input id="job-subtitle" name="job-subtitle" type="text" placeholder="Your last name...">
+                <label for="author">Author</label>
+                <input id="author" name="author" type="text" placeholder="Your name...">
             </div>
+        </fieldset>
 
+        <fieldset class="quantity">
+            <label for="Salary">Estimated salary</label>
+            <input id="estimated-salary" name="estimated-salary" type="number" placeholder="€50.000">
         </fieldset>
 
         <fieldset>
@@ -36,11 +39,12 @@
                 </span>
             </label>
 
-            <input id="file-upload" name="file-upload" type="textarea" placeholder="PNG, JPG up to 10MB">
+            <input id="file-upload" name="file-upload" type="file" placeholder="PNG, JPG up to 10MB">
         </fieldset>
 
-        <fieldset>
-            <button type="submit">submit</button>
+        <fieldset class="submits">
+            <button type="submit">save</button>
+            <button type="reset">cancel</button>
         </fieldset>
 
     </form>

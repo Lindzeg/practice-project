@@ -22,6 +22,10 @@ Route::get('jobs/create', function (){
     return view('jobs.create');
 });
 
+Route::post('/jobs', function() {
+    dd('ewa');
+});
+
 Route::get('/jobs/show/{id}', function ($id) {
     $job = Job::getAllJobs()->find($id);
 

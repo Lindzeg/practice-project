@@ -46,7 +46,7 @@
 
             <section class="create-job">
                 <div class="wrapper">
-                    <h2>Create your own job</h2>
+                    <h2>Create your own job post</h2>
                     <p>Do you work in an industry you'd like to talk about? Create your own job post here.</p>
                     <a href="/jobs/create"><span>create</span></a>
                 </div>
