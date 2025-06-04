@@ -12,11 +12,11 @@ main{
     }
 
     >section.slider{
-       @apply h-auto w-full m-auto p-4 flex flex-row justify-center gap-8;
+       @apply h-auto w-full m-auto p-4 flex flex-col items-center gap-0;
         >.img-slider{
-            @apply  h-[35rem] w-[80rem] flex flex-row gap-4 overflow-x-scroll scroll-smooth justify-start items-start ;
+            @apply  h-auto w-[80rem] flex flex-row gap-4 justify-start items-start ;
             >.slide{
-                @apply flex flex-col gap-3 w-auto flex-shrink-0  ;
+                @apply flex flex-col gap-3 w-auto;
 
                 >.img-container{
                     @apply  h-[25rem] w-[16rem] items-center ;
@@ -31,6 +31,19 @@ main{
 
             }
 
+        }
+
+        >.paginate{
+            @apply h-auto w-full flex justify-center ;
+            >.paginate-navigation{
+                @apply bg-white flex-row w-1/2 p-8 text-lg;
+                >.nav-link-container{
+                    @apply flex justify-center w-1/2 ;
+                    >.nav-index{
+                        @apply flex flex-row gap-8 items-center;
+                    }
+                }
+            }
         }
     }
 

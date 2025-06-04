@@ -35,10 +35,14 @@
                                     pays {{$job['salary']}} per year
                                 </li>
                             </div>
-
                         @endforeach
                     @endif
                 </div>
+
+                <div class="paginate">
+                    {{ $jobs->links();}}
+                </div>
+
             </section>
 
             <section class="vacancy">

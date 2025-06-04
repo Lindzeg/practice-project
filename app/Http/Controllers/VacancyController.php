@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Vacancy;
 use App\Models\VacancyDetails;
+use Illuminate\Database\Eloquent\Collection;
 use App\Models\Job;
 
 class VacancyController extends Controller
@@ -13,7 +14,7 @@ class VacancyController extends Controller
 
     public function index()
     {
-        $vacancies = Vacancy::all();
+        $vacancies = Vacancy::with('employer')->get();
         $vacancyDetails = VacancyDetails::all();
         //take first 3 vacancies from vacancy array
         $firstVacancies = $vacancies->take(3);
@@ -22,7 +23,7 @@ class VacancyController extends Controller
         $otherVacancies = $vacancies->skip(3);
 
         return view('jobs',[
-            'jobs' => Job::getAllJobs(),
+            'jobs' => Job::getAllJobs()->simplePaginate(5),
             'firstVacancies' => $firstVacancies,
             'otherVacancies' => $otherVacancies,
             'vacancies' => $vacancies,

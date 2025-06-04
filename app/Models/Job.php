@@ -12,7 +12,7 @@ class Job extends Model {
 
     public static function getAllJobs()
     {
-        return self::all();
+        return self::query(); //returns query builder for pagination
     }
 }
 
