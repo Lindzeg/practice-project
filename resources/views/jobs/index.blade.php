@@ -4,7 +4,7 @@
     </x-slot>
 
       <x-slot name="header">
-            <x-header heading="Job Listings"/>
+            <x-header heading="job Listings"/>
         </x-slot>
 
     <x-slot name="main">
@@ -30,7 +30,7 @@
                                 <img src="{{ asset('storage/' . $job->img_path) }}" alt={{ $job['title'] }}>
                             </div>
                                 <li>
-                                    <a href="/jobs/{{ $job['id']}}"><strong>{{ $job['title'] }}</strong></a>
+                                    <a href="jobs/show/{{ $job['id']}}"><strong>View {{ $job['title'] }}</strong></a>
                                     <br>
                                     pays {{$job['salary']}} per year
                                 </li>
@@ -42,7 +42,14 @@
                 <div class="paginate">
                     {{ $jobs->links();}}
                 </div>
+            </section>
 
+            <section class="create-job">
+                <div class="wrapper">
+                    <h2>Create your own job</h2>
+                    <p>Do you work in an industry you'd like to talk about? Create your own job post here.</p>
+                    <a href="/jobs/create"><span>create</span></a>
+                </div>
             </section>
 
             <section class="vacancy">
@@ -86,7 +93,7 @@
                                             </div>
                                         </div>
                                         <div class="footing">
-                                            <button>Apply for the job</button>
+                                            <button>Apply for the job >></button>
                                         </div>
                                     </div>
                                 </li>
@@ -142,11 +149,11 @@
 
                              @endif
                             {{--button shows remaining vacancies--}}
-                            <button x-on:click="open = ! open"> Show more </button>
+                            <button x-on:click="open = ! open"> show more </button>
                         </ul>
                     </div>
 
-                    <section class="search">
+                    <div class="search">
                         <form action="">
                             <h2>Look for a job, close to you.</h2>
                             <fieldset>
@@ -156,9 +163,9 @@
                             <fieldset>
                                 <input type="search" placeholder="Search location">
                             </fieldset>
-                            <button>Search</button>
+                            <button>search</button>
                         </form>
-                    </section>
+                    </div>
             </section>
         </x-main>
     </x-slot>

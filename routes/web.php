@@ -18,14 +18,14 @@ Route::get('/contact', function () {
 //returns te index class in VacancyController to jobs page
 Route::get('/jobs', [VacancyController::class, 'index']);
 
+Route::get('jobs/create', function (){
+    return view('jobs.create');
+});
 
-Route::get('/jobs/{id}', function ($id) {
+Route::get('/jobs/show/{id}', function ($id) {
     $job = Job::getAllJobs()->find($id);
 
-
-    return view('job', [
+    return view('jobs.show', [
         'job' => $job,
     ]);
-
-    
 });

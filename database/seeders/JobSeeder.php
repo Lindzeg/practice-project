@@ -12,6 +12,12 @@ class JobSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        Job::factory(10)->create([
+            'name' => fake()->company(),
+            'title' => fake()->jobTitle(),
+            'salary' => fake()->randomFloat(2,30000, 100000),
+            'job_discription' =>fake()->paragraph(),
+            'img_path' => 'img/',
+        ]);
     }
 }

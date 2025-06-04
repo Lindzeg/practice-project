@@ -26,12 +26,17 @@ main{
                 }
 
                 >li{
-                    @apply text-center text-lg w-[15rem] list-none;
+                    @apply text-center text-slate-700 text-lg w-[15rem] list-none;
+                    >a{
+                        >strong{
+                            @apply hover:underline hover:text-indigo-400;
+                    }
                 }
 
             }
 
         }
+    }
 
         >.paginate{
             @apply h-auto w-full flex justify-center ;
@@ -45,6 +50,26 @@ main{
                 }
             }
         }
+    }
+
+    >section.create-job{
+        @apply w-full h-auto p-4 flex flex-col gap-4 items-center;
+        >.wrapper{
+           @apply w-1/2 h-auto p-4 flex flex-col items-center gap-4;
+            >h2{
+                @apply text-indigo-400 text-6xl;
+            }
+            >p{
+                @apply text-slate-700 font-[arial];
+            }
+            >a{
+                @apply w-1/4 p-2 bg-gradient-to-br  from-purple-600 to-blue-500 rounded-md text-slate-700 text-lg flex items-center hover:shadow-md hover:shadow-slate-600;
+                >span{
+                    @apply bg-white px-[4.8rem] py-2 rounded-sm;
+                }
+            }
+        }
+
     }
 
     >section.vacancy{
@@ -135,7 +160,7 @@ main{
     .search{
         @apply w-1/2 p-4 h-full flex flex-col justify-start mt-16;
         >form{
-            @apply w-full h-[35rem] border-2 border-indigo-300 items-center justify-center p-4 rounded-md flex flex-col gap-8 ;
+            @apply w-full h-[33rem] border-2 border-indigo-300 items-center justify-center p-4 rounded-md flex flex-col gap-8 ;
             >h2{
                 @apply text-slate-700;
             }
@@ -172,6 +197,88 @@ main.job{
         }
         >p{
             @apply font-[arial]
+        }
+    }
+}
+
+
+main.contact{
+    @apply flex flex-col justify-start text-lg;
+
+    >form{
+        @apply w-full h-auto flex flex-col gap-8 p-4 items-center justify-center ;
+
+        >.text-container{
+            @apply h-auto w-1/2 flex flex-col items-center ;
+            >h2{
+                @apply text-4xl ;
+            }
+        }
+
+        >.personal-info{
+             @apply w-1/2 flex flex-row justify-start gap-2;
+              >.wrapper{
+                    @apply w-full flex flex-col gap-4;
+                >input{
+                    @apply border border-gray-400 rounded-md p-4 placeholder:font-[arial] placeholder:font-light placeholder:text-base;
+                }
+            }
+        }
+
+        >fieldset{
+           @apply w-1/2 flex flex-col justify-start gap-2;
+           >input{
+                @apply border border-gray-400 rounded-md p-4 placeholder:font-[arial] placeholder:font-light placeholder:text-base;
+           }
+           >button{
+                @apply w-1/2 self-center border-2 border-indigo-500 rounded-md p-4 text-slate-700 hover:bg-indigo-500 hover:text-white;
+           }
+        }
+    }
+}
+
+main.create{
+    @apply flex flex-col justify-start text-lg;
+
+    >form{
+        @apply w-full h-auto flex flex-col gap-8 p-4 items-center justify-center ;
+
+        >.text-container{
+            @apply h-auto w-1/2 flex flex-col items-center ;
+            >h2{
+                @apply text-4xl ;
+            }
+        }
+
+        >.job-info{
+             @apply w-1/2 flex flex-row justify-start gap-2;
+              >.wrapper{
+                    @apply w-full flex flex-col gap-4;
+                >input{
+                    @apply border border-gray-400 rounded-md p-4 placeholder:font-[arial] placeholder:font-light placeholder:text-base;
+                }
+            }
+        }
+
+        >fieldset{
+           @apply w-1/2 flex flex-col justify-start gap-2;
+           >label{
+                @apply flex flex-row-reverse mr-auto gap-2 items-center;
+                >span{
+                    >svg{
+                        @apply mr-auto;
+                    }
+                }
+            }
+           >input{
+                @apply border border-gray-400 rounded-md p-4 placeholder:font-[arial] placeholder:font-light placeholder:text-base;
+           }
+           >textarea{
+                @apply border border-gray-400 rounded-md p-4 placeholder:font-[arial] placeholder:font-light placeholder:text-base;
+           }
+           >button{
+                @apply w-1/2 self-center border-2 border-indigo-500 rounded-md p-4 text-slate-700 hover:bg-indigo-500 hover:text-white;
+           }
         }
     }
 }

@@ -8,8 +8,8 @@
         </x-slot>
 
     <x-slot name="main">
-        <x-main class="contact">
-            <x-contact-form title="Contact us"/>
+        <x-main class="create">
+            <x-create-job-post title="Create post"/>
         </x-main>
     </x-slot>
 </x-layout>

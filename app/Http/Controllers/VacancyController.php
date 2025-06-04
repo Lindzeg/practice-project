@@ -22,7 +22,7 @@ class VacancyController extends Controller
         //take all other vacancies except the first 3
         $otherVacancies = $vacancies->skip(3);
 
-        return view('jobs',[
+        return view('jobs.index',[
             'jobs' => Job::getAllJobs()->simplePaginate(5),
             'firstVacancies' => $firstVacancies,
             'otherVacancies' => $otherVacancies,

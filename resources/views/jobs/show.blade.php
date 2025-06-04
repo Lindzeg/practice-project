@@ -5,7 +5,7 @@
     </x-slot>
 
       <x-slot name="header">
-            <x-header heading="Job"/>
+            <x-header heading="job post"/>
         </x-slot>
 
     <x-slot name="main">

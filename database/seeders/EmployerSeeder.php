@@ -12,6 +12,9 @@ class EmployerSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+
+        Employer::factory(10)->create([
+            'company_name' => fake()->company(),
+        ]);
     }
 }
