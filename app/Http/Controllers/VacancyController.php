@@ -18,12 +18,11 @@ class VacancyController extends Controller
         $vacancyDetails = VacancyDetails::all();
         //take first 3 vacancies from vacancy array
         $firstVacancies = $vacancies->take(3);
-
         //take all other vacancies except the first 3
         $otherVacancies = $vacancies->skip(3);
 
         return view('jobs.index',[
-            'jobs' => Job::getAllJobs()->simplePaginate(5),
+            'jobs' => Job::getAllJobs()->latest()->simplePaginate(5),
             'firstVacancies' => $firstVacancies,
             'otherVacancies' => $otherVacancies,
             'vacancies' => $vacancies,

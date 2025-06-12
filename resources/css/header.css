@@ -1,10 +1,10 @@
 header{
-    @apply w-full p-8 shadow-md mb-20 bg-gray-200;
-    >.text-container{
-        >h1{
+    @apply w-full h-[6rem] p-8 shadow-md mb-20 bg-gray-200;
+    .text-container{
+        h1{
             @apply font-light text-base;
 
-            >span{
+            span{
                 @apply underline text-indigo-600 font-bold;
             }
         }

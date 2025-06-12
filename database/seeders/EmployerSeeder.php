@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Employer;
 
 class EmployerSeeder extends Seeder
 {
@@ -13,8 +14,6 @@ class EmployerSeeder extends Seeder
     public function run(): void
     {
 
-        Employer::factory(10)->create([
-            'company_name' => fake()->company(),
-        ]);
+        Employer::factory(10)->create();
     }
 }

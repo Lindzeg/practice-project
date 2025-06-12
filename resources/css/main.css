@@ -1,34 +1,34 @@
 main{
     @apply flex flex-col w-full gap-16 h-full p-4 mb-4;
 
-    >.heading{
+    .heading{
         @apply p-4 h-auto w-full  ;
-        >.text-container{
-            @apply w-auto flex justify-center flex-row p-12 ml-28;
-            >h2{
+        .text-container{
+            @apply w-auto flex justify-center flex-row p-12;
+            h2{
                 @apply text-7xl text-slate-500 text-center;
             }
         }
     }
 
-    >section.slider{
+    section.slider{
        @apply h-auto w-full m-auto p-4 flex flex-col items-center gap-0;
-        >.img-slider{
+        .img-slider{
             @apply  h-auto w-[80rem] flex flex-row gap-4 justify-start items-start ;
-            >.slide{
+            .slide{
                 @apply flex flex-col gap-3 w-auto;
 
-                >.img-container{
+                .img-container{
                     @apply  h-[25rem] w-[16rem] items-center ;
-                    >img{
+                    img{
                         @apply h-full w-full object-cover rounded-md grayscale hover:grayscale-0 hover:cursor-pointer hover:scale-105 hover:ease-in-out hover:duration-150;
                     }
                 }
 
-                >li{
+                li{
                     @apply text-center text-slate-700 text-lg w-[15rem] list-none;
-                    >a{
-                        >strong{
+                    a{
+                        strong{
                             @apply hover:underline hover:text-indigo-400;
                     }
                 }
@@ -38,13 +38,13 @@ main{
         }
     }
 
-        >.paginate{
+        .paginate{
             @apply h-auto w-full flex justify-center ;
-            >.paginate-navigation{
+            .paginate-navigation{
                 @apply bg-white flex-row w-1/2 p-8 text-lg;
-                >.nav-link-container{
+                .nav-link-container{
                     @apply flex justify-center w-1/2 ;
-                    >.nav-index{
+                    .nav-index{
                         @apply flex flex-row gap-8 items-center;
                     }
                 }
@@ -52,19 +52,19 @@ main{
         }
     }
 
-    >section.create-job{
+    section.create-job{
         @apply w-full h-auto p-4 flex flex-col gap-4 items-center;
-        >.wrapper{
+        .wrapper{
            @apply w-1/2 h-auto p-4 flex flex-col items-center gap-4;
-            >h2{
+            h2{
                 @apply text-indigo-400 text-6xl;
             }
-            >p{
+            p{
                 @apply text-slate-700 font-[arial];
             }
-            >a{
+            a{
                 @apply w-1/4 p-2 bg-gradient-to-br  from-purple-600 to-blue-500 rounded-md text-slate-700 text-lg flex items-center hover:shadow-md hover:shadow-slate-600;
-                >span{
+                span{
                     @apply bg-white px-[4.8rem] py-2 rounded-sm;
                 }
             }
@@ -72,49 +72,49 @@ main{
 
     }
 
-    >section.vacancy{
+    section.vacancy{
         @apply flex flex-row items-start p-4 h-auto w-full  bg-slate-100 ;
-        >.vacancy-wrapper{
+        .vacancy-wrapper{
             @apply p-4 h-auto w-1/2 flex flex-col gap-8;
             h2{
                 @apply text-3xl self-center text-slate-600;
             }
-            >ul{
+            ul{
                 @apply  w-full h-full flex flex-col gap-8;
-                >li{
+                li{
                     @apply flex flex-row w-auto h-1/2 gap-4 justify-center;
                     .vacancy-item{
                         @apply h-full w-full flex flex-col justify-center gap-2 rounded-md p-4 bg-gray-800
                             hover:scale-[101%] hover:cursor-pointer hover:duration-75 hover:ease-in-out;
-                        >h3{
+                        h3{
                             @apply text-indigo-300;
                         }
-                        >p{
+                        p{
                             @apply font-[arial] text-white font-light;
                         }
-                        >datetime{
+                        datetime{
                             @apply font-[arial] text-white font-light;
                         }
                     }
 
 
-                    >.expand{
+                    .expand{
                         @apply bg-orange-200 w-[30rem] h-auto p-4 rounded-md flex flex-col gap-4 text-slate-700;
-                        >.footing{
+                        .footing{
                             @apply flex flex-row gap-4 items-center justify-start;
-                                >button{
+                                button{
                                     @apply w-auto h-10 rounded-md underline  text-slate-700 font-[arial] hover:font-bold;
                                 }
                         }
 
-                        >.vacancy-details{
+                        .vacancy-details{
                             @apply flex flex-row gap-4 justify-center h-auto w-full;
-                            >ul{
+                            ul{
                                 @apply flex gap-2 flex-row flex-wrap justify-start w-full;
-                                >.row{
+                                .row{
                                     @apply flex flex-row h-auto w-auto p-1  gap-1 items-center justify-center text-base;
 
-                                    >img{
+                                    img{
                                         @apply w-6 h-6;
                                     }
                                 }
@@ -122,33 +122,38 @@ main{
 
                         }
 
-                        >.function-discription{
+                        .function-discription{
                             @apply flex flex-col gap-2;
-                            >.text-container{
-                                >h2{
+                            .text-container{
+                                h2{
                                     @apply text-xl ;
                                 }
-                                >p{
+                                p{
                                     @apply font-light font-[arial] text-base ;
                                 }
                             }
 
                         }
+                        .footing{
+                            a{
+                                @apply text-indigo-600 text-lg font-normal hover:cursor-pointer hover:font-bold;
+                            }
+                        }
                     }
 
                 }
 
-                >button{
+                button{
                     @apply p-4 w-1/2 rounded-md  bg-indigo-500 text-xl font-bold text-gray-200 hover:w-[70%]
                     duration-150 ease-in-out;
                 }
 
                 /* styling for when vacancy-item is in toggle state */
-                >li.toggle{
-                        >.vacancy-item{
+                li.toggle{
+                        .vacancy-item{
                             @apply w-1/2 h-auto hover:scale-100;
                         }
-                        >.expand{
+                        .expand{
                             @apply w-full;
                         }
                     }
@@ -159,18 +164,18 @@ main{
 
     .search{
         @apply w-1/2 p-4 h-full flex flex-col justify-start mt-16;
-        >form{
+        form{
             @apply w-full h-[33rem] border-2 border-indigo-300 items-center justify-center p-4 rounded-md flex flex-col gap-8 ;
-            >h2{
+            h2{
                 @apply text-slate-700;
             }
-            >fieldset{
+            fieldset{
                 @apply w-[80%] ;
-                >input{
+                input{
                     @apply w-full p-4 rounded-md font-[arial] focus:outline outline-slate-400 placeholder:text-gray-700;
                 }
             }
-            >button{
+            button{
                 @apply bg-slate-600 p-4 w-[80%] rounded-md text-white;
             }
         }
@@ -180,22 +185,22 @@ main{
 
 main.job{
     @apply h-[80%] w-full p-4 gap-4 flex flex-row-reverse justify-center items-start;
-    >.img-container{
+    .img-container{
         @apply w-full h-[85%] flex flex-col gap-8 p-8 items-center justify-center;
             background:linear-gradient(#4d7bf7 10%, #4030d3 90%);
-            >img{
+            img{
                 @apply h-full w-1/2 object-cover rounded-lg shadow-lg;
             }
-            >a{
+            a{
                 @apply self-start justify-self-end  text-white text-lg uppercase font-bold hover:cursor-pointer hover:animate-pulse;
             }
         }
-    >.text-container{
+    .text-container{
         @apply w-1/2 text-left flex flex-col gap-4 ;
-        >h2{
+        h2{
             @apply text-6xl;
         }
-        >p{
+        p{
             @apply font-[arial]
         }
     }
@@ -205,32 +210,32 @@ main.job{
 main.contact{
     @apply flex flex-col justify-start text-lg;
 
-    >form{
+    form{
         @apply w-full h-auto flex flex-col gap-8 p-4 items-center justify-center ;
 
-        >.text-container{
+        .text-container{
             @apply h-auto w-1/2 flex flex-col items-center ;
-            >h2{
+            h2{
                 @apply text-4xl ;
             }
         }
 
-        >.personal-info{
+        .personal-info{
              @apply w-1/2 flex flex-row justify-start gap-2;
-              >.wrapper{
+              .wrapper{
                     @apply w-full flex flex-col gap-4;
-                >input{
+                input{
                     @apply border border-gray-400 rounded-md p-4 placeholder:font-[arial] placeholder:font-light placeholder:text-base;
                 }
             }
         }
 
-        >fieldset{
+        fieldset{
            @apply w-1/2 flex flex-col justify-start gap-2;
-           >input{
+           input{
                 @apply border border-gray-400 rounded-md p-4 placeholder:font-[arial] placeholder:font-light placeholder:text-base;
            }
-           >button{
+           button{
                 @apply w-1/2 self-center border-2 border-indigo-500 rounded-md p-4 text-slate-700 hover:bg-indigo-500 hover:text-white;
            }
         }
@@ -240,58 +245,62 @@ main.contact{
 main.create{
     @apply flex flex-col justify-start text-lg;
 
-    >form{
+    form{
         @apply w-full h-auto flex flex-col gap-8 p-4 items-center justify-center ;
 
-        >.text-container{
+        .text-container{
             @apply h-auto w-1/2 flex flex-col items-center ;
-            >h2{
+            h2{
                 @apply text-4xl ;
             }
         }
 
-        >.job-info{
+        .job-info{
              @apply w-1/2 flex flex-row justify-start gap-2;
-              >.wrapper{
+              .wrapper{
                     @apply w-full flex flex-col gap-4;
-                >input{
+                input{
                     @apply border border-gray-400 rounded-md p-4 placeholder:font-[arial] placeholder:font-light placeholder:text-base;
                 }
             }
         }
 
 
-        >.quantity{
+        .quantity{
             @apply w-1/2;
-            >input{
+            input{
                 @apply w-1/6;
             }
         }
 
-        >fieldset{
+        fieldset{
            @apply w-1/2 flex flex-col justify-start gap-2;
-           >label{
+           label{
                 @apply flex flex-row-reverse mr-auto gap-2 items-center;
-                >span{
-                    >svg{
+                span{
+                    svg{
                         @apply mr-auto;
                     }
                 }
             }
-           >input{
+           input{
                 @apply border border-gray-400 rounded-md p-4 placeholder:font-[arial] placeholder:font-light placeholder:text-base;
            }
-           >textarea{
+           #file-upload{
+                @apply border-none
+           }
+           textarea{
                 @apply border border-gray-400 rounded-md p-4 placeholder:font-[arial] placeholder:font-light placeholder:text-base;
            }
-           >button{
+           button{
                 @apply w-1/2 self-center border-2 border-indigo-500 rounded-md p-4 text-slate-700 hover:bg-indigo-500 hover:text-white;
            }
+
         }
 
-        >.submits{
+        .submits{
             @apply flex flex-row gap-4;
-            >button{
+            button{
                 @apply w-1/6 h-auto p-2;
             }
         }

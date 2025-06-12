@@ -1,7 +1,7 @@
 <?php
 
 namespace Database\Factories;
-use App\Models\Employer;
+
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,13 +17,11 @@ class JobFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->company(),
-            'title' => fake()->jobTitle(),
-            'salary' => fake()->randomFloat(2,30000, 100000),
-            'job_discription' =>fake()->paragraph(),
-            'img_path' => 'img/',
+            'title'=>fake()->jobTitle(),
+            'job_description'=>fake()->paragraph(),
+            'salary'=> fake()->numberBetween(1,50000),
+            'img_path'=> 'img/',
+            'created_at'=> now(),
         ];
     }
 }
-
-

@@ -13,10 +13,12 @@ return new class extends Migration
     {
         Schema::create('vacancies', function (Blueprint $table){
             $table->id();
-            $table->string('title');
-            $table->string('job_info');
+            $table->string('title')->nullable();
+            $table->string('vacancy_intro')->nullable();
+            $table->string('about_vacancy')->nullable();
+            $table->string('vacancy_description')->nullable();
             //make a foreign key for and link it to employer table. Then delete related records.
-            $table->foreignIdFor(\App\Models\Employer::class)->constrained()->onDelete('cascade');
+            $table->foreignIdFor(\App\Models\Employer::class)->constrained()->onDelete('cascade')->nullable();
             $table->timestamps();
         });
     }

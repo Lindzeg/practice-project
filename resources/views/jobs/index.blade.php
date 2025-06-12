@@ -32,7 +32,7 @@
                                 <li>
                                     <a href="jobs/show/{{ $job['id']}}"><strong>View {{ $job['title'] }}</strong></a>
                                     <br>
-                                    pays {{$job['salary']}} per year
+                                    pays €{{$job['salary']}} per year
                                 </li>
                             </div>
                         @endforeach
@@ -58,54 +58,56 @@
                     {{--Initialize Alpine.js with 'open' set to false--}}
                         <ul x-data="{ open: false}" >
                             {{--loop over first 3 vacancies--}}
-                            @if(isset($vacancies))
+                            @if(isset($vacancies, $vacancyDetails))
                                 @foreach ($firstVacancies as $vacancy)
-                                <li x-data="{toggle: false}" x-bind:class="{ 'toggle' : toggle }" >
+                                    <li x-data="{toggle: false}" x-bind:class="{ 'toggle' : toggle }" >
 
-                                    <div class="vacancy-item" x-on:click="toggle = ! toggle" role="button">
-                                        <h3>{{$vacancy['title']}}</h3>
-                                        <p>{{$vacancy['job_info']}}</p>
-                                        <datetime>Posted at: {{$vacancy['created_at']}} <br> by: {{$vacancy->employer['company_name']}} </datetime>
-                                    </div>
-
-                                    <div class="expand" x-show="toggle"  x-transition.enter.duration.400ms x-transition.leave.duration.500ms>
-                                        <h2>Vacancy title</h2>
-
-                                        <div class="vacancy-details">
-                                            <ul>
-                                                @foreach ($vacancyDetails as $detail)
-                                                    <li class="row">
-                                                        <img src="{{ asset('storage/' . $detail->img_path) }}" alt="{{ $detail['job_details'] }}">
-                                                        <p>{{ $detail['vacancie_details'] }}</p>
-                                                    </li>
-                                                @endforeach
-                                            </ul>
+                                        <div class="vacancy-item" x-on:click="toggle = ! toggle" role="button">
+                                            <h3>{{$vacancy['title']}}</h3>
+                                            <p>{{$vacancy['vacancy_intro']}}</p>
+                                            <datetime>Posted at: {{$vacancy['created_at']}} <br> by: {{$vacancy->employer['company_name']}} </datetime>
                                         </div>
 
-                                        <div class="function-discription">
-                                            <div class="text-container">
-                                                <h2>About the function</h2>
-                                                <p>{{$vacancy['about_job']}}</p>
+                                        <div class="expand" x-show="toggle"  x-transition.enter.duration.400ms x-transition.leave.duration.500ms>
+                                            <h2>Vacancy title</h2>
+
+                                            <div class="vacancy-details">
+                                                <ul>
+                                                    @foreach ($vacancyDetails as $detail)
+                                                        <li class="row">
+                                                            <img src="{{ asset('storage/' . $detail->img_path) }}" alt="{{ $detail['img_path'] }}">
+                                                            <p>{{ $detail['vacancy_details'] }}</p>
+                                                        </li>
+                                                    @endforeach
+                                                </ul>
                                             </div>
-                                            <div class="text-container">
-                                                <h2>Function discription</h2>
-                                                <p>{{$vacancy['job_discription']}}</p>
+
+                                            <div class="function-discription">
+                                                <div class="text-container">
+                                                    <h2>About the function</h2>
+                                                    <p>{{$vacancy['about_vacancy']}}</p>
+                                                </div>
+                                                <div class="text-container">
+                                                    <h2>Function discription</h2>
+                                                    <p>{{$vacancy['vacancy_description']}}</p>
+                                                </div>
+                                            </div>
+
+                                            <div class="footing">
+                                                <a>Apply for the job >></a>
                                             </div>
                                         </div>
-                                        <div class="footing">
-                                            <button>Apply for the job >></button>
-                                        </div>
-                                    </div>
-                                </li>
+                                    </li>
                                 @endforeach
 
                                 {{-- When the button is pressed, open is set to true, and loops over all other available vacancies --}}
                                 @foreach ($otherVacancies as $vacancy)
                                   <template x-if="open">
                                     <li x-data="{ toggle: false }" :class="{ 'toggle': toggle }">
+
                                         <div class="vacancy-item" x-on:click="toggle = !toggle" role="button">
                                             <h3>{{ $vacancy['title'] }}</h3>
-                                            <p>{{ $vacancy['job_info'] }}</p>
+                                            <p>{{ $vacancy['vacancy_intro'] }}</p>
                                             <datetime>
                                                 Posted at: {{ $vacancy['created_at'] }} <br>
                                                 by: {{ $vacancy->employer['company_name'] }}
@@ -129,24 +131,23 @@
                                             </div>
 
                                             <div class="function-discription">
-                                                <div class="text-container">
-                                                    <h2>About the function</h2>
-                                                    <p>{{ $vacancy['about_job'] }}</p>
-                                                </div>
-                                                <div class="text-container">
-                                                    <h2>Function discription</h2>
-                                                    <p>{{ $vacancy['job_discription'] }}</p>
-                                                </div>
+                                                    <div class="text-container">
+                                                        <h2>About the function</h2>
+                                                        <p>{{ $vacancy['about_vacancy'] }}</p>
+                                                    </div>
+                                                    <div class="text-container">
+                                                        <h2>Function discription</h2>
+                                                        <p>{{ $vacancy['vacancy_description'] }}</p>
+                                                    </div>
                                             </div>
 
                                             <div class="footing">
-                                                <button>Apply for the job</button>
+                                                <a>Apply for the job</a>
                                             </div>
                                         </div>
                                     </li>
                                 </template>
                                 @endforeach
-
                              @endif
                             {{--button shows remaining vacancies--}}
                             <button x-on:click="open = ! open"> show more </button>

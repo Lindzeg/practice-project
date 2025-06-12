@@ -9,11 +9,6 @@ class VacancyDetailsController extends Controller
 {
     public function index()
     {
-
-        return view('jobs',[
-            'vacancyDetails' => $vacancyDetails,
-        ]);
-
-
+        //
     }
 }

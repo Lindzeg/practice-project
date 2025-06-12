@@ -14,9 +14,9 @@ return new class extends Migration
     if (!Schema::hasTable('job_listings')) {
         Schema::create('job_listings', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('title');
-            $table->decimal('salary', 8, 2);
+            $table->string('title')->nullable();
+            $table->string('job_description')->nullable();
+            $table->decimal('salary', 8, 2)->nullable();
             $table->string('img_path')->nullable();
             $table->timestamps();
         });

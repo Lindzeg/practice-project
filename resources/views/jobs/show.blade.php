@@ -17,8 +17,7 @@
             <div class="text-container">
                 <h2>{{ $job['title']}}</h2>
                 <h3>Job discription</h3>
-                <br>
-                <p>{{$job['job_discription']}}</p>
+                <p>{{$job['job_description']}}</p>
                 <p>The estimate salary for this job is around €{{$job['salary'] }} per year. </p>
             </div>
         </x-main>

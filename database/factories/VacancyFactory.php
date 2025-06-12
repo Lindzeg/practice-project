@@ -18,12 +18,11 @@ class VacancyFactory extends Factory
     {
         return [
             'title'=>fake()->jobTitle(),
-            'job_info'=>fake()->paragraph(),
+            'vacancy_intro'=>fake()->text(80),
+            'about_vacancy'=>fake()->paragraph(2),
+            'vacancy_description'=>fake()->paragraph(3),
             'employer_id'=> Employer::factory(),
             'created_at'=> now(),
-            'img_path' => 'img/',
-            'about_job' => fake()->paragraph(),
-            'job_discription' => fake()->paragraph(),
         ];
     }
 }
