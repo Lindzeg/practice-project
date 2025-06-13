@@ -20,6 +20,7 @@ class JobFactory extends Factory
             'title'=>fake()->jobTitle(),
             'job_description'=>fake()->paragraph(),
             'salary'=> fake()->numberBetween(1,50000),
+            'author'=> fake()->name(),
             'img_path'=> 'img/',
             'created_at'=> now(),
         ];

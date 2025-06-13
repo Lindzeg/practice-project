@@ -1,7 +1,8 @@
-@props(['title'])
+@props(['title', 'job'])
 
-    <form method="POST" action="/jobs" enctype="multipart/form-data">
+    <form method="POST" action="/jobs/{{ $job->id }}" enctype="multipart/form-data">
         @csrf {{-- sets an unique token --}}
+        @method('PATCH')
         <div class="text-container">
             <h2>{{$title}}</h2>
             <p>We just need a handfull of details from you.</p>
@@ -10,7 +11,7 @@
         <fieldset class="job-info">
             <div class="wrapper">
                 <label for="job-title" >Job title</label>
-                <input id="job-title" name="job-title" type="text" placeholder="Your name..." required>
+                <input id="job-title" name="job-title" type="text" placeholder="Your name..." required value="{{ $job->title }}">
                     @error('job-title')
                        <p class="text-red-500 text-sm"> {{ $message }} </p>
                     @enderror
@@ -18,7 +19,7 @@
 
             <div class="wrapper">
                 <label for="author">Author</label>
-                <input id="author" name="author" type="text" placeholder="Your name..." required>
+                <input id="author" name="author" type="text" placeholder="Your name..." required value="{{ $job->author }}">
                     @error('author')
                         <p class="text-red-500 text-sm"> {{ $message }} </p>
                     @enderror
@@ -26,8 +27,8 @@
         </fieldset>
 
         <fieldset class="quantity">
-            <label for="Salary">Estimated salary</label>
-            <input id="salary" name="salary" type="test" placeholder="€50 000" required>
+            <label for="salary">Estimated salary</label>
+            <input id="salary" name="salary" type="text" placeholder="€50 000" required value="{{ $job->salary }}">
                 @error('salary')
                     <p class="text-red-500 text-sm"> {{ $message }} </p>
                 @enderror
@@ -35,14 +36,14 @@
 
         <fieldset>
             <label for="job-description">Job description</label>
-            <textarea id="job-description" name="job-description" type="textarea" placeholder="Your job description..." required></textarea>
+            <textarea id="job-description" name="job-description" type="textarea" placeholder="Your job description..." required>{{ $job['job_description'] }}</textarea>
                 @error('job-description')
                     <p class="text-red-500 text-sm"> {{ $message }} </p>
                 @enderror
         </fieldset>
 
-        <fieldset x-data="{ Filename: 'No file chosen' }">
-            <label for="file-upload" id="file-upload">choose file
+        <fieldset>
+            <label for="file-upload" id="file-upload">upload file
                 <span>
                     <svg class="size-8 text-gray-300" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" data-slot="icon">
                         <path fill-rule="evenodd" d="M1.5 6a2.25 2.25 0 0 1 2.25-2.25h16.5A2.25 2.25 0 0 1 22.5 6v12a2.25 2.25 0 0 1-2.25 2.25H3.75A2.25 2.25 0 0 1 1.5
@@ -51,15 +52,15 @@
                     </svg>
                 </span>
             </label>
-            <input id="file-upload" name="file-upload" type="file" placeholder="PNG, JPG up to 10MB" required >
+            <input id="file-upload" name="file-upload" type="file" required>
                 @error('file-upload')
                     <p class="text-red-500 text-sm"> {{ $message }} </p>
                 @enderror
         </fieldset>
 
         <fieldset class="submits">
-            <button name='submit' type="submit">save</button>
-            <button name='reset' type="reset">cancel</button>
+            <button name='submit' type="submit">update</button>
+            <a href="/jobs/{{ $job->id }}}/edit">cancel</a>
         </fieldset>
     </form>
 

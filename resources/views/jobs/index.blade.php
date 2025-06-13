@@ -32,7 +32,7 @@
                                 <li>
                                     <a href="jobs/show/{{ $job['id']}}"><strong>View {{ $job['title'] }}</strong></a>
                                     <br>
-                                    pays €{{$job['salary']}} per year
+                                    pays € {{$job['salary']}} per year
                                 </li>
                             </div>
                         @endforeach

@@ -15,6 +15,7 @@ return new class extends Migration
         Schema::create('job_listings', function (Blueprint $table) {
             $table->id();
             $table->string('title')->nullable();
+            $table->string('author')->nullable();
             $table->string('job_description')->nullable();
             $table->decimal('salary', 8, 2)->nullable();
             $table->string('img_path')->nullable();

@@ -18,8 +18,10 @@
                 <h2>{{ $job['title']}}</h2>
                 <h3>Job discription</h3>
                 <p>{{$job['job_description']}}</p>
-                <p>The estimate salary for this job is around €{{$job['salary'] }} per year. </p>
+                <p>The estimate salary for this job is around € {{$job['salary'] }} per year. </p>
+                <a href="/jobs/{{ $job['id']}}/edit">Edit job</a>
             </div>
+
         </x-main>
     </x-slot>
 </x-layout>
