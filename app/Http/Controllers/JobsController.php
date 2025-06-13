@@ -15,8 +15,17 @@ class JobsController extends Controller
         ]);
     }
 
+    public function create()
+    {
+        return view('jobs.create');
+    }
+
+    public function show(Job $job)
+    {
+        return view('jobs.show', ['job' => $job,]);
+    }
+
     public function post(Request $request){
-        // dd($request->all());
         request()->validate([
             'job-title' => ['required', 'min:3'],
             'author' => ['required', 'min:1'],
@@ -37,7 +46,7 @@ class JobsController extends Controller
         return redirect('/jobs');
     }
 
-    public function update(Request $request, $id){
+    public function update(Request $request, Job $job){
         //validate
         request()->validate([
             'job-title' => ['required', 'min:3'],
@@ -49,7 +58,6 @@ class JobsController extends Controller
         //authorize (onHold)
 
         //update job
-        $job = Job::getAllJobs()->findOrFail($id);
         $path = $request->file('file-upload')->store('uploads', 'public');
         $job->update([
             'title' => request('job-title'),
@@ -58,18 +66,16 @@ class JobsController extends Controller
             'job_description' => request('job-description'),
             'img_path' => $path,
         ]);
-
-        //redirect to jobs page
         return redirect('jobs/show/'. $job->id)->with('message', 'Vacancy updated successfully');
     }
 
+    public function edit(Request $request, Job $job){
+        return view('jobs.edit', ['job' => $job,]);
+    }
 
-    public function destroy(Request $request, $id){
+    public function destroy(Request $request, Job $job){
         //authorize (onHold)
-        //delete job
-        $job = Job::getAllJobs()->find($id);
         $job->delete();
-
         return redirect('/jobs');
     }
 }

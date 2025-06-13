@@ -2,7 +2,7 @@
     <nav role="navigation" aria-label="Pagination Navigation" class="paginate-navigation">
         {{-- Previous Page Link --}}
         @if ($paginator->onFirstPage())
-            <span class="relative inline-flex items-center px-4 py-2 text-bhase font-bold text-indigo-500">
+            <span class="relative inline-flex items-center px-4 py-2 text-base font-bold text-indigo-500">
                 {!! __('pagination.previous') !!}
             </span>
         @else

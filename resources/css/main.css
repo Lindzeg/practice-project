@@ -203,9 +203,16 @@ main.job{
         p{
             @apply font-[arial]
         }
-        a{
-            @apply bg-slate-300 text-lg text-slate-700 rounded-md p-2 w-1/4 shadow-md text-center shadow-slate-500 hover:scale-105 hover:cursor-pointer;
+        div{
+            @apply flex flex-row justify-start gap-4;
+            a{
+                @apply bg-slate-300 text-lg text-slate-700 rounded-md p-2 w-1/4 shadow-md text-center shadow-slate-500 hover:scale-105 hover:cursor-pointer;
+            }
+            button{
+                @apply bg-indigo-600 text-lg text-white rounded-md p-2 w-1/4 shadow-md text-center shadow-slate-500 hover:scale-105 hover:cursor-pointer;
+            }
         }
+
     }
 }
 

@@ -1,5 +1,6 @@
 
 <x-layout>
+
     <x-slot name="nav">
         <x-nav/>
     </x-slot>
@@ -10,6 +11,7 @@
 
     <x-slot name="main">
         <x-main class="job" :job="$job">
+
             <div class="img-container">
                 <img src="{{ asset('storage/' . $job->img_path) }}" alt="{{ $job['title'] }}">
                 <a href="/jobs">< Go to previous page</a>
@@ -17,11 +19,18 @@
             <div class="text-container">
                 <h2>{{ $job['title']}}</h2>
                 <h3>Job discription</h3>
+                <h4>Author: {{ $job->author }}</h4>
                 <p>{{$job['job_description']}}</p>
                 <p>The estimate salary for this job is around € {{$job['salary'] }} per year. </p>
-                <a href="/jobs/{{ $job['id']}}/edit">Edit job</a>
+                <div>
+                    <a href="/jobs/{{ $job['id']}}/edit">Edit job</a>
+                    <button form="delete">Delete job</button>
+                </div>
             </div>
-
+            <form method="POST" action="/jobs/{{ $job->id }}" id="delete" class='hidden'>
+                @csrf
+                @method('DELETE')
+            </form>
         </x-main>
     </x-slot>
 </x-layout>
