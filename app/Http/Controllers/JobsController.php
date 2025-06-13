@@ -7,12 +7,9 @@ use App\Models\Job;
 
 class JobsController extends Controller
 {
-    public function index($id)
+    public function index(Job $job)
     {
-        $job = Job::getAllJobs()->find($id);
-        return view('jobs.edit',[
-            'job' => $job,
-        ]);
+        return view('jobs.edit',['job' => $job,]);
     }
 
     public function create()
@@ -55,6 +52,7 @@ class JobsController extends Controller
             'job-description' => ['required', 'min:24'],
             'file-upload' => ['required'],
         ]);
+        
         //authorize (onHold)
 
         //update job
