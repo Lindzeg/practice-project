@@ -4,11 +4,11 @@
     </x-slot>
 
       <x-slot name="header">
-            <x-header heading="Contact"/>
+            <x-header heading="contact"/>
         </x-slot>
 
     <x-slot name="main">
-        <x-main class="contact">
+        <x-main class="form">
             <x-contact-form title="Contact us"/>
         </x-main>
     </x-slot>

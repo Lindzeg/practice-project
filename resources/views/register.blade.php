@@ -4,12 +4,12 @@
     </x-slot>
 
       <x-slot name="header">
-            <x-header heading="create a job post"/>
+            <x-header heading="register"/>
         </x-slot>
 
     <x-slot name="main">
         <x-main class="form">
-            <x-create-job-post title="Create a new job post"/>
+            <x-register-form title="Register"/>
         </x-main>
     </x-slot>
 </x-layout>

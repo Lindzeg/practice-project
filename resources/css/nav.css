@@ -20,6 +20,13 @@ nav{
         }
 
         .img-wrapper{
+            a{
+                @apply flex self-center text-gray-300;
+            }
+            .active{
+                @apply p-2 rounded-md bg-white duration-100 ease-in;
+            }
+            
             @apply flex flex-row justify-evenly self-center pr-4 gap-4;
             .img-container{
                 @apply w-[2rem] h-[2rem];

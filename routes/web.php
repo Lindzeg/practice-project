@@ -7,6 +7,8 @@ use App\Http\Controllers\JobsController;
 
 Route::view('/', 'home');
 Route::view('/contact', 'contact');
+Route::view('/login', 'login');
+Route::view('/register', 'register');
 
 Route::resource('jobs', JobsController::class,[
     'except' => ['index']
