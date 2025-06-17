@@ -7,9 +7,9 @@ use App\Models\Job;
 
 class JobsController extends Controller
 {
-    public function index(Job $job)
+    public function index()
     {
-        return view('jobs.edit',['job' => $job,]);
+
     }
 
     public function create()
@@ -22,7 +22,7 @@ class JobsController extends Controller
         return view('jobs.show', ['job' => $job,]);
     }
 
-    public function post(Request $request){
+    public function store(Request $request){
         request()->validate([
             'job-title' => ['required', 'min:3'],
             'author' => ['required', 'min:1'],
@@ -52,7 +52,7 @@ class JobsController extends Controller
             'job-description' => ['required', 'min:24'],
             'file-upload' => ['required'],
         ]);
-        
+
         //authorize (onHold)
 
         //update job

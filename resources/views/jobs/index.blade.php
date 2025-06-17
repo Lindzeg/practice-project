@@ -131,14 +131,14 @@
                                             </div>
 
                                             <div class="function-discription">
-                                                    <div class="text-container">
-                                                        <h2>About the function</h2>
-                                                        <p>{{ $vacancy['about_vacancy'] }}</p>
-                                                    </div>
-                                                    <div class="text-container">
-                                                        <h2>Function discription</h2>
-                                                        <p>{{ $vacancy['vacancy_description'] }}</p>
-                                                    </div>
+                                                <div class="text-container">
+                                                    <h2>About the function</h2>
+                                                    <p>{{ $vacancy['about_vacancy'] }}</p>
+                                                </div>
+                                                <div class="text-container">
+                                                    <h2>Function discription</h2>
+                                                    <p>{{ $vacancy['vacancy_description'] }}</p>
+                                                </div>
                                             </div>
 
                                             <div class="footing">

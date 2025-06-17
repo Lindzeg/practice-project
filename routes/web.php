@@ -8,5 +8,12 @@ use App\Http\Controllers\JobsController;
 Route::view('/', 'home');
 Route::view('/contact', 'contact');
 
-Route::resource('jobs', JobsController::class);
+Route::get('/jobs', [VacancyController::class,'index']);
+
+
+Route::resource('jobs', JobsController::class,[
+    'except' => ['index']
+]);
+
+
 
