@@ -30,7 +30,7 @@
                                 <img src="{{ asset('storage/' . $job->img_path) }}" alt={{ $job['title'] }}>
                             </div>
                                 <li>
-                                    <a href="jobs/show/{{ $job['id']}}"><strong>View {{ $job['title'] }}</strong></a>
+                                    <a href="{{ route('jobs.show', $job->id) }}"><strong>View {{ $job['title'] }}</strong></a>
                                     <br>
                                     pays € {{$job['salary']}} per year
                                 </li>
@@ -48,7 +48,7 @@
                 <div class="wrapper">
                     <h2>Create your own job post</h2>
                     <p>Do you work in an industry you'd like to talk about? Create your own job post here.</p>
-                    <a href="/jobs/create"><span>create</span></a>
+                    <a href="{{ route('jobs.create') }}"><span>create</span></a>
                 </div>
             </section>
 

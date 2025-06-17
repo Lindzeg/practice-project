@@ -60,7 +60,7 @@
 
         <fieldset class="submits">
             <button name='submit' type="submit">update</button>
-            <a href="/jobs/{{ $job->id }}}/edit">cancel</a>
+            <a href="{{ route('jobs.show', $job->id) }}">cancel</a>
         </fieldset>
     </form>
 

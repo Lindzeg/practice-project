@@ -23,7 +23,7 @@
                 <p>{{$job['job_description']}}</p>
                 <p>The estimate salary for this job is around € {{$job['salary'] }} per year. </p>
                 <div>
-                    <a href="/jobs/{{ $job['id']}}/edit">Edit job</a>
+                    <a href="{{ route('jobs.edit', $job->id) }}">Edit job</a>
                     <button form="delete">Delete job</button>
                 </div>
             </div>
