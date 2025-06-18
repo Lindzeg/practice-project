@@ -35,13 +35,13 @@
 
         <fieldset>
             <label for="job-description">Job description</label>
-            <textarea id="job-description" name="job-description" type="textarea" placeholder="Your job description..." required></textarea>
+            <textarea id="job-description" name="job-description" placeholder="Your job description..." required></textarea>
                 @error('job-description')
                     <p class="text-red-500 text-sm"> {{ $message }} </p>
                 @enderror
         </fieldset>
 
-        <fieldset x-data="{ Filename: 'No file chosen' }">
+        <fieldset>
             <label for="file-upload" id="file-upload">choose file
                 <span>
                     <svg class="size-8 text-gray-300" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" data-slot="icon">

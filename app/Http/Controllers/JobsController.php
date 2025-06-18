@@ -64,7 +64,7 @@ class JobsController extends Controller
             'job_description' => request('job-description'),
             'img_path' => $path,
         ]);
-        return redirect('jobs/show/'. $job->id)->with('message', 'Vacancy updated successfully');
+        return redirect('jobs/show/'. $job->id);
     }
 
     public function edit(Request $request, Job $job){

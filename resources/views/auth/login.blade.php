@@ -4,12 +4,12 @@
     </x-slot>
 
       <x-slot name="header">
-            <x-header heading="register"/>
+            <x-header heading="login"/>
         </x-slot>
 
     <x-slot name="main">
         <x-main class="form">
-            <x-register-form title="Register"/>
+            <x-forms.login-form title="Login"/>
         </x-main>
     </x-slot>
 </x-layout>

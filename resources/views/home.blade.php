@@ -25,6 +25,11 @@
      Then use x-header heading="Homepage" /> and access it in the view with $ heading
 -->
 
+<!-- 5. view components structure:
+    When making a subfolder in components, the naming will change.
+    <x-form/> will be <x-forms.form/>
+-->
+
 <x-layout>
 
     <x-slot name="nav">
@@ -32,11 +37,13 @@
     </x-slot>
 
       <x-slot name="header">
-            <x-header heading="Home"/>
+            <x-header heading="home"/>
         </x-slot>
 
     <x-slot name="main">
-        <x-main/>
+        <x-main>
+
+        </x-main>
     </x-slot>
 
 </x-layout>

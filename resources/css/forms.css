@@ -77,8 +77,9 @@ main.form{
         }
 
         .fp{
+            @apply gap-2;
             a{
-                @apply w-1/2
+                @apply w-1/2 h-fit p-0 border-none hover:underline hover:text-slate-700 hover:bg-transparent;
             }
         }
     }

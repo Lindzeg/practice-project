@@ -9,7 +9,7 @@
 
     <x-slot name="main">
         <x-main class="form">
-            <x-edit-job-post title="Edit your job post: {{ $job->title }}" :job="$job"/>
+            <x-forms.edit-jobpost-form title="Edit your job post: {{ $job->title }}" :job="$job"/>
         </x-main>
     </x-slot>
 </x-layout>

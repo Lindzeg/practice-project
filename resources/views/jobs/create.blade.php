@@ -9,7 +9,7 @@
 
     <x-slot name="main">
         <x-main class="form">
-            <x-create-job-post title="Create a new job post"/>
+            <x-forms.create-jobpost-form title="Create a new job post"/>
         </x-main>
     </x-slot>
 </x-layout>

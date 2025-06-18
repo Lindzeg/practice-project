@@ -36,7 +36,7 @@
 
         <fieldset>
             <label for="job-description">Job description</label>
-            <textarea id="job-description" name="job-description" type="textarea" placeholder="Your job description..." required>{{ $job['job_description'] }}</textarea>
+            <textarea id="job-description" name="job-description" placeholder="Your job description..." required>{{ $job['job_description'] }}</textarea>
                 @error('job-description')
                     <p class="text-red-500 text-sm"> {{ $message }} </p>
                 @enderror
