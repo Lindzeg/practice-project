@@ -9,9 +9,9 @@
 
         <fieldset class="job-info">
             <div class="wrapper">
-                <label for="job-title" >Job title</label>
-                <input id="job-title" name="job-title" type="text" placeholder="Your name..." required>
-                    @error('job-title')
+                <label for="title" >Job title</label>
+                <input id="title" name="title" type="text" placeholder="Your name..." required>
+                    @error('title')
                        <p class="text-red-500 text-sm"> {{ $message }} </p>
                     @enderror
             </div>
@@ -34,9 +34,9 @@
         </fieldset>
 
         <fieldset>
-            <label for="job-description">Job description</label>
-            <textarea id="job-description" name="job-description" placeholder="Your job description..." required></textarea>
-                @error('job-description')
+            <label for="description">Job description</label>
+            <textarea id="description" name="description" placeholder="Your job description..." required></textarea>
+                @error('description')
                     <p class="text-red-500 text-sm"> {{ $message }} </p>
                 @enderror
         </fieldset>

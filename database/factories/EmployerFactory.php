@@ -1,6 +1,7 @@
 <?php
 
 namespace Database\Factories;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,6 +18,8 @@ class EmployerFactory extends Factory
     {
         return [
             'company_name' => fake()->company(),
+            'name' => fake()->name(),
+            'user_id' => User::factory(),
         ];
     }
 

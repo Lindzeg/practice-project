@@ -13,7 +13,6 @@
             :vacancies="$vacancies"
             :firstVacancies="$firstVacancies"
             :otherVacancies="$otherVacancies"
-            :vacancyDetails="$vacancyDetails"
         >
             <section class="heading">
                 <div class="text-container">
@@ -27,12 +26,12 @@
                         @foreach ( $jobs as $job )
                         <div class="slide">
                             <div class="img-container">
-                                <img src="{{ asset('storage/' . $job->img_path) }}" alt={{ $job['title'] }}>
+                                <img src="{{ asset('storage/' . $job->img_path) }}" alt={{ $job->title }}>
                             </div>
                                 <li>
-                                    <a href="{{ route('jobs.show', $job->id) }}"><strong>View {{ $job['title'] }}</strong></a>
+                                    <a href="{{ route('jobs.show', $job->id) }}"><strong>View {{ $job->title }}</strong></a>
                                     <br>
-                                    pays € {{$job['salary']}} per year
+                                    pays € {{$job->salary}} per year
                                 </li>
                             </div>
                         @endforeach
@@ -58,14 +57,14 @@
                     {{--Initialize Alpine.js with 'open' set to false--}}
                         <ul x-data="{ open: false}" >
                             {{--loop over first 3 vacancies--}}
-                            @if(isset($vacancies, $vacancyDetails))
+                            @if(isset($vacancies))
                                 @foreach ($firstVacancies as $vacancy)
                                     <li x-data="{toggle: false}" x-bind:class="{ 'toggle' : toggle }" >
 
                                         <div class="vacancy-item" x-on:click="toggle = ! toggle" role="button">
-                                            <h3>{{$vacancy['title']}}</h3>
-                                            <p>{{$vacancy['vacancy_intro']}}</p>
-                                            <datetime>Posted at: {{$vacancy['created_at']}} <br> by: {{$vacancy->employer['company_name']}} </datetime>
+                                            <h3>{{$vacancy->title}}</h3>
+                                            <p>{{$vacancy->description}}</p>
+                                            <datetime>Posted at: {{$vacancy->created_at}} <br> by: {{$vacancy->employer->company_name}} </datetime>
                                         </div>
 
                                         <div class="expand" x-show="toggle"  x-transition.enter.duration.400ms x-transition.leave.duration.500ms>
@@ -73,23 +72,29 @@
 
                                             <div class="vacancy-details">
                                                 <ul>
-                                                    @foreach ($vacancyDetails as $detail)
-                                                        <li class="row">
-                                                            <img src="{{ asset('storage/' . $detail->img_path) }}" alt="{{ $detail['img_path'] }}">
-                                                            <p>{{ $detail['vacancy_details'] }}</p>
-                                                        </li>
-                                                    @endforeach
+                                                    <li class="row">
+                                                        <div class="wrapper">
+                                                            <img src="{{ asset('storage/img/suitcase.png') }}" alt="">
+                                                            <img src="{{ asset('storage/img/building.png') }}" alt="b">
+                                                            <img src="{{ asset('storage/img/clock.png') }}" alt="">
+                                                            <img src="{{ asset('storage/img/hat.png') }}" alt="">
+                                                            <img src="{{ asset('storage/img/money.png') }}" alt="">
+                                                        </div>
+                                                        <div class="wrapper">
+                                                            <p>Employment</p>
+                                                            <p>Location</p>
+                                                            <p>Working hours</p>
+                                                            <p>Education</p>
+                                                            <p>Salary</p>
+                                                        </div>
+                                                    </li>
                                                 </ul>
                                             </div>
 
                                             <div class="function-discription">
                                                 <div class="text-container">
-                                                    <h2>About the function</h2>
-                                                    <p>{{$vacancy['about_vacancy']}}</p>
-                                                </div>
-                                                <div class="text-container">
                                                     <h2>Function discription</h2>
-                                                    <p>{{$vacancy['vacancy_description']}}</p>
+                                                    <p>{{$vacancy->description}}</p>
                                                 </div>
                                             </div>
 
@@ -106,11 +111,11 @@
                                     <li x-data="{ toggle: false }" :class="{ 'toggle': toggle }">
 
                                         <div class="vacancy-item" x-on:click="toggle = !toggle" role="button">
-                                            <h3>{{ $vacancy['title'] }}</h3>
-                                            <p>{{ $vacancy['vacancy_intro'] }}</p>
+                                            <h3>{{ $vacancy->title }}</h3>
+                                            <p>{{ $vacancy->vacancy_intro }}</p>
                                             <datetime>
-                                                Posted at: {{ $vacancy['created_at'] }} <br>
-                                                by: {{ $vacancy->employer['company_name'] }}
+                                                Posted at: {{ $vacancy->created_at }} <br>
+                                                by: {{ $vacancy->employer->company_name }}
                                             </datetime>
                                         </div>
 
@@ -121,23 +126,29 @@
 
                                             <div class="vacancy-details">
                                                 <ul>
-                                                    @foreach ($vacancyDetails as $detail)
-                                                        <li class="row">
-                                                            <img src="{{ asset('storage/' . $detail->img_path) }}" alt="{{ $detail['job_details'] }}">
-                                                            <p>{{ $detail['vacancie_details'] }}</p>
-                                                        </li>
-                                                    @endforeach
+                                                    <li class="row">
+                                                        <div class="wrapper">
+                                                            <img src="{{ asset('storage/img/suitcase.png') }}" alt="">
+                                                            <img src="{{ asset('storage/img/building.png') }}" alt="b">
+                                                            <img src="{{ asset('storage/img/clock.png') }}" alt="">
+                                                            <img src="{{ asset('storage/img/hat.png') }}" alt="">
+                                                            <img src="{{ asset('storage/img/money.png') }}" alt="">
+                                                        </div>
+                                                        <div class="wrapper">
+                                                            <p>Employment</p>
+                                                            <p>Location</p>
+                                                            <p>Working hours</p>
+                                                            <p>Education</p>
+                                                            <p>Salary</p>
+                                                        </div>
+                                                    </li>
                                                 </ul>
                                             </div>
 
                                             <div class="function-discription">
                                                 <div class="text-container">
-                                                    <h2>About the function</h2>
-                                                    <p>{{ $vacancy['about_vacancy'] }}</p>
-                                                </div>
-                                                <div class="text-container">
                                                     <h2>Function discription</h2>
-                                                    <p>{{ $vacancy['vacancy_description'] }}</p>
+                                                    <p>{{ $vacancy->description }}</p>
                                                 </div>
                                             </div>
 

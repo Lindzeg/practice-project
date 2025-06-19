@@ -7,12 +7,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Job extends Model {
     use HasFactory;
-    protected $table = 'job_listings';
+    protected $table = 'job_posts';
     protected $guarded = [];
 
-    public static function getAllJobs()
-    {
-        return self::query(); //returns query builder for pagination
+    public function employer(){
+        return $this->belongsTo(Employer::class);
     }
 }
 

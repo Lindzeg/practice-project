@@ -17,11 +17,9 @@ class VacancyFactory extends Factory
     public function definition(): array
     {
         return [
-            'title'=>fake()->jobTitle(),
-            'vacancy_intro'=>fake()->text(80),
-            'about_vacancy'=>fake()->paragraph(2),
-            'vacancy_description'=>fake()->paragraph(3),
             'employer_id'=> Employer::factory(),
+            'title'=>fake()->jobTitle(),
+            'description'=>fake()->paragraph(3),
             'created_at'=> now(),
         ];
     }

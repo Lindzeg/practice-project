@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Job;
+use App\Models\User;
 
 class JobsController extends Controller
 {
@@ -12,8 +13,17 @@ class JobsController extends Controller
 
     }
 
-    public function create()
+    public function create(Request $request)
     {
+        if (Auth::guest()){
+            $request->session()->flash('status', 'You need to have an account to create posts.');
+            return redirect('/login');
+        }
+
+        if ($job->employer->user->isNot(Auth::user())){
+            abort(403);
+        }
+
         return view('jobs.create');
     }
 
@@ -24,19 +34,19 @@ class JobsController extends Controller
 
     public function store(Request $request){
         request()->validate([
-            'job-title' => ['required', 'min:3'],
+            'title' => ['required', 'min:3'],
             'author' => ['required', 'min:1'],
             'salary' => ['required', 'min:6'],
-            'job-description' => ['required', 'min:24'],
+            'description' => ['required', 'min:24'],
             'file-upload' => ['required'],
         ]);
 
         $path = $request->file('file-upload')->store('uploads', 'public');
         Job::create([
-            'title' => request('job-title'),
+            'title' => request('title'),
             'author' => request('author'),
             'salary' => request('salary'),
-            'job_description' => request('job-description'),
+            'description' => request('description'),
             'img_path' => $path,
         ]);
 
@@ -46,33 +56,53 @@ class JobsController extends Controller
     public function update(Request $request, Job $job){
         //validate
         request()->validate([
-            'job-title' => ['required', 'min:3'],
+            'title' => ['required', 'min:3'],
             'author' => ['required', 'min:1'],
             'salary' => ['required', 'min:6'],
-            'job-description' => ['required', 'min:24'],
+            'description' => ['required', 'min:24'],
             'file-upload' => ['required'],
         ]);
 
-        //authorize (onHold)
+        if ($job->employer->user->isNot(Auth::user())){
+            abort(403);
+        }
 
         //update job
         $path = $request->file('file-upload')->store('uploads', 'public');
         $job->update([
-            'title' => request('job-title'),
+            'title' => request('title'),
             'author' => request('author'),
             'salary' => request('salary'),
-            'job_description' => request('job-description'),
+            'description' => request('description'),
             'img_path' => $path,
         ]);
+
         return redirect('jobs/show/'. $job->id);
     }
 
     public function edit(Request $request, Job $job){
+        if (Auth::guest()){
+            $request->session()->flash('status', 'You need to have an account and log in to edit posts.');
+            return redirect('/login');
+        }
+
+        if ($job->employer->user->isNot(Auth::user())){
+            abort(403);
+        }
+
         return view('jobs.edit', ['job' => $job,]);
     }
 
     public function destroy(Request $request, Job $job){
-        //authorize (onHold)
+        if (Auth::guest()){
+            $request->session()->flash('status', 'You need to have an account and log in to delete posts.');
+            return redirect('/login');
+        }
+
+        if ($job->employer->user->isNot(Auth::user())){
+            abort(403);
+        }
+
         $job->delete();
         return redirect('/jobs');
     }

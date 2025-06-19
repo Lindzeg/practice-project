@@ -10,9 +10,9 @@
 
         <fieldset class="job-info">
             <div class="wrapper">
-                <label for="job-title" >Job title</label>
-                <input id="job-title" name="job-title" type="text" placeholder="Your name..." required value="{{ $job->title }}">
-                    @error('job-title')
+                <label for="title" >Job title</label>
+                <input id="title" name="title" type="text" placeholder="Your name..." required value="{{ $job->title }}">
+                    @error('title')
                        <p class="text-red-500 text-sm"> {{ $message }} </p>
                     @enderror
             </div>
@@ -35,9 +35,9 @@
         </fieldset>
 
         <fieldset>
-            <label for="job-description">Job description</label>
-            <textarea id="job-description" name="job-description" placeholder="Your job description..." required>{{ $job['job_description'] }}</textarea>
-                @error('job-description')
+            <label for="description">Job description</label>
+            <textarea id="description" name="description" placeholder="Your job description..." required>{{ $job->description }}</textarea>
+                @error('description')
                     <p class="text-red-500 text-sm"> {{ $message }} </p>
                 @enderror
         </fieldset>
@@ -59,7 +59,7 @@
         </fieldset>
 
         <fieldset class="submits">
-            <button name='submit' type="submit">update</button>
+                <button name='submit' type="submit">update</button>
             <a href="{{ route('jobs.show', $job->id) }}">cancel</a>
         </fieldset>
     </form>

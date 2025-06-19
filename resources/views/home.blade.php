@@ -27,7 +27,7 @@
 
 <!-- 5. view components structure:
     When making a subfolder in components, the naming will change.
-    <x-form/> will be <x-forms.form/>
+    x-form will be x-forms.form
 -->
 
 <x-layout>
