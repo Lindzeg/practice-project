@@ -4,30 +4,117 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Vacancy;
-use App\Models\VacancyDetails;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Collection;
-use App\Models\Job;
+
 
 class VacancyController extends Controller
 {
 
-
     public function index()
     {
-        $vacancies = Vacancy::has('employer')->get();
-        //take first 3 vacancies from vacancy array
-        $firstVacancies = $vacancies->take(3);
-        //take all other vacancies except the first 3
-        $otherVacancies = $vacancies->skip(3);
+        $vacancies = Vacancy::all();
+        return view('vacancies.index',[
+            'vacancies' => Vacancy::has('employer')->get(),
+        ]);
+    }
 
-        return view('jobs.index',[
-            'jobs' => Job::has('employer')->with('employer')->latest()->simplePaginate(5),
-            'firstVacancies' => $firstVacancies,
-            'otherVacancies' => $otherVacancies,
-            'vacancies' => $vacancies,
+     public function create(Request $request)
+    {
+        if (Auth::guest()){
+            $request->session()->flash('status', 'You need to have an account to create a vacancy.');
+            return redirect('/login');
+        }
+        return view('vacancies.create');
+    }
+
+    public function edit(Request $request, Vacancy $vacancy )
+    {
+        //auth
+        return view('vacancies.edit', ['vacancy' => $vacancy ]);
+    }
+
+    public function show(Request $request, Vacancy $vacancy)
+    {
+        return view('vacancies.show',[ 'vacancy' => $vacancy ]);
+    }
+
+    public function store(Request $request)
+    {
+        //validate
+        request()->validate([
+            'title' => ['required', 'min:3'],
+            'employment' => ['required'],
+            'location' => ['required'],
+            'working-hours' => ['required'],
+            'education' => ['required'],
+            'salary' => ['required'],
+            'description' => ['required', 'min:24'],
+        ]);
+        //auth
+        
+        //update
+        Vacancy::create([
+            'title' => request('title'),
+            'employment' => request('employment'),
+            'location' => request('location'),
+            'hours' => request('working-hours'),
+            'employment' => request('employment'),
+            'education' => request('education'),
+            'salary' => request('salary'),
+            'employer_id' => auth()->user()->employer->id,
+        ]);
+        
+        return redirect('/jobs');
+    }
+
+    public function update(Request $request, Vacancy $vacancy)
+    {
+        request()->validate([
+            'title' => ['required', 'min:3'],
+            'employment' => ['required'],
+            'location' => ['required'],
+            'working-hours' => ['required'],
+            'education' => ['required'],
+            'salary' => ['required'],
+            'description' => ['required', 'min:24'],
         ]);
 
+        if ($vacancy->employer->id->isNot(Auth::user())){
+            abort(403);
+        }
 
+        $vacancy->update([
+            'title' => request('title'),
+            'employment' => request('employment'),
+            'location' => request('location'),
+            'hours' => request('working-hours'),
+            'employment' => request('employment'),
+            'education' => request('education'),
+            'salary' => request('salary'),
+            'employer_id' => auth()->user()->employer->id,
+        ]);
+
+        return redirect('vacancies/show/'. $job->id);
+    }
+
+    public function destroy(Request $request, Vacancy $vacancy)
+    {
+        if (Auth::guest()){
+            $request->session()->flash('status', 'You need to have an account and log in to delete posts.');
+            return redirect('/login');
+        }
+
+        if ($vacancy->employer->isNot(Auth::user()->employer)){
+            abort(403);
+        }
+
+        if ($vacancy->employer->is(Auth::user()->employer)){
+            $vacancy->delete();
+        }
+        
+        return redirect('/vacancies');
+    
     }
 
 }

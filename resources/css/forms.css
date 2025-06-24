@@ -5,7 +5,6 @@
 
 */
 
-/* relocate form styling to form.css */
 main.form{
     @apply flex flex-col justify-start text-lg;
 
@@ -16,16 +15,6 @@ main.form{
             @apply h-auto w-1/2 flex flex-col items-center ;
             h2{
                 @apply text-4xl ;
-            }
-        }
-
-        .personal-info, .job-info{
-             @apply w-1/2 flex flex-row justify-start gap-2;
-              .wrapper{
-                    @apply w-full flex flex-col gap-4;
-                input{
-                    @apply border border-gray-400 rounded-md p-4 placeholder:font-[arial] placeholder:font-light placeholder:text-base;
-                }
             }
         }
 
@@ -60,6 +49,20 @@ main.form{
            a{
                 @apply w-1/6 self-center text-center border-2 border-indigo-500 rounded-md p-2 text-slate-700 hover:bg-indigo-500 hover:text-white hover:cursor-pointer;
            }
+        }
+
+        .personal-info{
+            @apply flex flex-row justify-between;
+            .wrapper{
+                @apply flex flex-col justify-start gap-2 w-1/2;
+            }
+        }
+
+        .vacancy-details{
+            @apply flex flex-row flex-wrap ;
+            .wrapper{
+                @apply flex flex-col w-[10rem];
+            }
         }
 
         .quantity{

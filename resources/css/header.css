@@ -1,12 +1,21 @@
 header{
     @apply w-full h-[6rem] p-8 shadow-md mb-20 bg-gray-200;
     .text-container{
+        @apply flex flex-row justify-between ;
         h1{
             @apply font-light text-base;
 
             span{
                 @apply underline text-indigo-600 font-bold;
             }
+        }
+        .wrapper{
+            @apply flex flex-row gap-4 ;
+
+            a{
+                @apply hover:underline;
+            }
+
         }
 
     }

@@ -19,14 +19,14 @@
             <div class="text-container">
                 <h2>{{ $job->title}}</h2>
                 <h3>Job discription</h3>
-                <h4>Author: {{ $job->author }}</h4>
+                <h4>Author: {{ $job->user->first_name }}</h4>
                 <p>{{$job->description}}</p>
                 <p>The estimate salary for this job is around € {{$job->salary }} per year. </p>
                 <div>
-                    {{-- @auth --}}
+                    @if(auth()->user()->id === $job->user_id)
                         <a href="{{ route('jobs.edit', $job->id) }}">Edit job</a>
                         <button form="delete">Delete job</button>
-                    {{-- @endauth --}}
+                    @endif
                 </div>
             </div>
             <form method="POST" action="/jobs/{{ $job->id }}" id="delete" class='hidden'>

@@ -12,12 +12,7 @@ class Employer extends Model
 
     public function vacancies()
     {
-        //define an employer who can have many vacancies
         return $this->hasMany(Vacancy::class);
-    }
-
-    public function jobPosts(){
-        return $this->hasMany(Job::class);
     }
 
     public function user(){

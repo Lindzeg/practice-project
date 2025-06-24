@@ -44,11 +44,20 @@
             </section>
 
             <section class="create-job">
-                <div class="wrapper">
-                    <h2>Create your own job post</h2>
-                    <p>Do you work in an industry you'd like to talk about? Create your own job post here.</p>
-                    <a href="{{ route('jobs.create') }}"><span>create</span></a>
-                </div>
+                @auth
+                    <div class="wrapper">
+                        <h2>Create your own job post</h2>
+                        <p>Do you work in an industry you'd like to talk about? Create your own job post here.</p>
+                        <a href="{{ route('jobs.create') }}">create</a>
+                    </div>
+                    @endauth
+                    @guest
+                        <div class="wrapper">
+                        <h2>Log in to create your own job posts</h2>
+                        <p>Do you work in an industry you'd like to talk about? Create your own job post here.</p>
+                        <a href="/login">log in</a>
+                    </div>
+                @endguest
             </section>
 
             <section class="vacancy">
@@ -87,6 +96,13 @@
                                                             <p>Education</p>
                                                             <p>Salary</p>
                                                         </div>
+                                                        <div class="wrapper">
+                                                            <p>{{ $vacancy->employment }}</p>
+                                                            <p>{{ $vacancy->location }}</p>
+                                                            <p>{{ $vacancy->hours}}</p>
+                                                            <p>{{ $vacancy->education }}</p>
+                                                            <p>{{ $vacancy->salary }}</p>
+                                                        </div>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -99,7 +115,7 @@
                                             </div>
 
                                             <div class="footing">
-                                                <a>Apply for the job >></a>
+                                                <a href="{{ route('vacancies.show', $vacancy->id) }}">Apply for the job >></a>
                                             </div>
                                         </div>
                                     </li>
@@ -119,7 +135,6 @@
                                             </datetime>
                                         </div>
 
-                                        <!-- En dit zit nog steeds in hetzelfde <li> -->
                                         <div class="expand" x-show="toggle" x-transition.enter.duration.400ms x-transition.leave.duration.500ms>
                                             <h2>Vacancy title</h2>
 
@@ -141,6 +156,13 @@
                                                             <p>Education</p>
                                                             <p>Salary</p>
                                                         </div>
+                                                        <div class="wrapper">
+                                                            <p>{{ $vacancy->employment }}</p>
+                                                            <p>{{ $vacancy->location }}</p>
+                                                            <p>{{ $vacancy->hours}}</p>
+                                                            <p>{{ $vacancy->education }}</p>
+                                                            <p>{{ $vacancy->salary }}</p>
+                                                        </div>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -148,12 +170,12 @@
                                             <div class="function-discription">
                                                 <div class="text-container">
                                                     <h2>Function discription</h2>
-                                                    <p>{{ $vacancy->description }}</p>
+                                                        <p>{{ $vacancy->description }}</p>
                                                 </div>
                                             </div>
 
                                             <div class="footing">
-                                                <a>Apply for the job</a>
+                                                <a href="{{ route('vacancies.show', $vacancy->id) }}">Apply for the job >></a>
                                             </div>
                                         </div>
                                     </li>

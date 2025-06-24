@@ -4,12 +4,12 @@
     </x-slot>
 
       <x-slot name="header">
-            <x-header heading="contact"/>
+            <x-header heading="Edit vacancy:" />
         </x-slot>
 
     <x-slot name="main">
         <x-main class="form">
-            <x-forms.contact-form title="Contact us"/>
+            <x-forms.edit-vacancypost-form title="Edit your vacancy: {{ $vacancy->title }}" :vacancy="$vacancy" />
         </x-main>
     </x-slot>
 </x-layout>

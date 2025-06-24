@@ -7,22 +7,12 @@
             <p>We just need a handfull of details from you.</p>
         </div>
 
-        <fieldset class="job-info">
-            <div class="wrapper">
-                <label for="title" >Job title</label>
-                <input id="title" name="title" type="text" placeholder="Your name..." required>
-                    @error('title')
-                       <p class="text-red-500 text-sm"> {{ $message }} </p>
-                    @enderror
-            </div>
-
-            <div class="wrapper">
-                <label for="author">Author</label>
-                <input id="author" name="author" type="text" placeholder="Your name..." required>
-                    @error('author')
-                        <p class="text-red-500 text-sm"> {{ $message }} </p>
-                    @enderror
-            </div>
+        <fieldset>
+            <label for="title" >Job title</label>
+            <input id="title" name="title" type="text" placeholder="Your name..." required>
+                @error('title')
+                    <p class="text-red-500 text-sm"> {{ $message }} </p>
+                @enderror
         </fieldset>
 
         <fieldset class="quantity">

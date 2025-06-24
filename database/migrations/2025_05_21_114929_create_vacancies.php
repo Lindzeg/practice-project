@@ -17,6 +17,11 @@ return new class extends Migration
             $table->foreignIdFor(Employer::class)->constrained()->onDelete('cascade');
             $table->string('title')->nullable();
             $table->string('description')->nullable();
+            $table->string('employment')->nullable();
+            $table->string('location')->nullable();
+            $table->string('hours')->nullable();
+            $table->string('education')->nullable();
+            $table->string('salary')->nullable();
             $table->timestamps();
         });
     }

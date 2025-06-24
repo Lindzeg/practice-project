@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use App\Models\Employer;
+use App\Models\User;
 
 return new class extends Migration
 {
@@ -15,9 +15,8 @@ return new class extends Migration
 
     Schema::create('job_posts', function (Blueprint $table) {
         $table->id();
-        $table->foreignIdFor(Employer::class)->constrained()->onDelete('cascade');
+        $table->foreignIdFor(User::class)->constrained()->onDelete('cascade');
         $table->string('title')->nullable();
-        $table->string('author')->nullable();
         $table->string('description')->nullable();
         $table->decimal('salary', 8, 2)->nullable();
         $table->string('img_path')->nullable();

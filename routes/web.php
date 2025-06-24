@@ -10,6 +10,9 @@ use App\Http\Controllers\LoginUserController;
 Route::view('/', 'home');
 Route::view('/contact', 'contact');
 
+Route::resource('vacancies', VacancyController::class);
+Route::resource('jobs', JobsController::class);
+
 //auth
 Route::get('/register', [RegisterUserController::class, 'create']);
 Route::post('/register', [RegisterUserController::class, 'store']);
@@ -17,11 +20,6 @@ Route::post('/register', [RegisterUserController::class, 'store']);
 Route::get('/login', [LoginUserController::class, 'create']);
 Route::post('/login', [LoginUserController::class, 'store']);
 
-Route::resource('jobs', JobsController::class,[
-    'except' => ['index']
-]);
-
-Route::get('/jobs', [VacancyController::class,'index']);
 Route::post('/logout', [LoginUserController::class, 'destroy']);
 
 
