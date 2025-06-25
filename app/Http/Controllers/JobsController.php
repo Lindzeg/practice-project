@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
 use App\Models\Job;
 use App\Models\Vacancy;
 use App\Models\User;
+use App\Mail\JobPosted;
 
 class JobsController extends Controller
 {
@@ -62,7 +64,7 @@ class JobsController extends Controller
         ]);
 
         $path = $request->file('file-upload')->store('uploads', 'public');
-        Job::create([
+        $job = Job::create([
             'title' => request('title'),
             'salary' => request('salary'),
             'description' => request('description'),
@@ -70,6 +72,9 @@ class JobsController extends Controller
             'user_id' => auth()->user()->id,
         ]);
 
+        Mail::to($job->user)->send(new JobPosted($job));
+
+        
         return redirect('/jobs');
     }
 

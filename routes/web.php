@@ -7,6 +7,7 @@ use App\Http\Controllers\JobsController;
 use App\Http\Controllers\RegisterUserController;
 use App\Http\Controllers\LoginUserController;
 
+
 Route::view('/', 'home');
 Route::view('/contact', 'contact');
 
