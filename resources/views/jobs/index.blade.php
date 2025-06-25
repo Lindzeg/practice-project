@@ -70,47 +70,41 @@
                                 @foreach ($firstVacancies as $vacancy)
                                     <li x-data="{toggle: false}" x-bind:class="{ 'toggle' : toggle }" >
 
-                                        <div class="vacancy-item" x-on:click="toggle = ! toggle" role="button">
-                                            <h3>{{$vacancy->title}}</h3>
-                                            <p>{{$vacancy->description}}</p>
-                                            <datetime>Posted at: {{$vacancy->created_at}} <br> by: {{$vacancy->employer->company_name}} </datetime>
+                                        <div class="vacancy-item" x-on:click="toggle = !toggle" role="button">
+                                            <h3>{{ $vacancy->title }}</h3>
+                                            <p>{{ $vacancy->vacancy_intro }}</p>
+                                            <datetime>
+                                                Posted at: {{ $vacancy->created_at }} <br>
+                                                by: {{ $vacancy->employer->company_name }}
+                                            </datetime>
                                         </div>
 
-                                        <div class="expand" x-show="toggle"  x-transition.enter.duration.400ms x-transition.leave.duration.500ms>
+                                        <div class="expand" x-show="toggle" x-transition.enter.duration.400ms x-transition.leave.duration.500ms>
                                             <h2>Vacancy title</h2>
 
-                                            <div class="vacancy-details">
-                                                <ul>
-                                                    <li class="row">
-                                                        <div class="wrapper">
-                                                            <img src="{{ asset('storage/img/suitcase.png') }}" alt="">
-                                                            <img src="{{ asset('storage/img/building.png') }}" alt="b">
-                                                            <img src="{{ asset('storage/img/clock.png') }}" alt="">
-                                                            <img src="{{ asset('storage/img/hat.png') }}" alt="">
-                                                            <img src="{{ asset('storage/img/money.png') }}" alt="">
-                                                        </div>
-                                                        <div class="wrapper">
-                                                            <p>Employment</p>
-                                                            <p>Location</p>
-                                                            <p>Working hours</p>
-                                                            <p>Education</p>
-                                                            <p>Salary</p>
-                                                        </div>
-                                                        <div class="wrapper">
-                                                            <p>{{ $vacancy->employment }}</p>
-                                                            <p>{{ $vacancy->location }}</p>
-                                                            <p>{{ $vacancy->hours}}</p>
-                                                            <p>{{ $vacancy->education }}</p>
-                                                            <p>{{ $vacancy->salary }}</p>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                            </div>
+                                            <div class="details-wrapper">
+                                                <div class="wrapper">
+                                                    <img src="{{ asset('storage/img/suitcase.png') }}" alt="">
+                                                    <p>{{$vacancy->employment}}</p>
+                                                </div>
+                                                <div class="wrapper">
+                                                    <img src="{{ asset('storage/img/building.png') }}" alt="b">
+                                                    <p>{{$vacancy->location}}</p>
+                                                </div>
+                                                <div class="wrapper">
+                                                    <img src="{{ asset('storage/img/clock.png') }}" alt="">
+                                                    <p>{{$vacancy->hours . 'h' }}</p>
+                                                </div>
+                                                <div class="wrapper">
+                                                    <img src="{{ asset('storage/img/hat.png') }}" alt="">
+                                                    <p>{{$vacancy->education}}</p>
+                                                </div>
+                                            </div>                                        
 
                                             <div class="function-discription">
                                                 <div class="text-container">
                                                     <h2>Function discription</h2>
-                                                    <p>{{$vacancy->description}}</p>
+                                                        <p>{{ $vacancy->description }}</p>
                                                 </div>
                                             </div>
 
@@ -138,34 +132,24 @@
                                         <div class="expand" x-show="toggle" x-transition.enter.duration.400ms x-transition.leave.duration.500ms>
                                             <h2>Vacancy title</h2>
 
-
-                                            <div class="vacancy-details">
-                                                <ul>
-                                                    <li class="row">
-                                                        <div class="wrapper">
-                                                            <img src="{{ asset('storage/img/suitcase.png') }}" alt="">
-                                                            <img src="{{ asset('storage/img/building.png') }}" alt="b">
-                                                            <img src="{{ asset('storage/img/clock.png') }}" alt="">
-                                                            <img src="{{ asset('storage/img/hat.png') }}" alt="">
-                                                            <img src="{{ asset('storage/img/money.png') }}" alt="">
-                                                        </div>
-                                                        <div class="wrapper">
-                                                            <p>Employment</p>
-                                                            <p>Location</p>
-                                                            <p>Working hours</p>
-                                                            <p>Education</p>
-                                                            <p>Salary</p>
-                                                        </div>
-                                                        <div class="wrapper">
-                                                            <p>{{ $vacancy->employment }}</p>
-                                                            <p>{{ $vacancy->location }}</p>
-                                                            <p>{{ $vacancy->hours}}</p>
-                                                            <p>{{ $vacancy->education }}</p>
-                                                            <p>{{ $vacancy->salary }}</p>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                            </div>
+                                            <div class="details-wrapper">
+                                                <div class="wrapper">
+                                                    <img src="{{ asset('storage/img/suitcase.png') }}" alt="">
+                                                    <p>{{$vacancy->employment}}</p>
+                                                </div>
+                                                <div class="wrapper">
+                                                    <img src="{{ asset('storage/img/building.png') }}" alt="b">
+                                                    <p>{{$vacancy->location}}</p>
+                                                </div>
+                                                <div class="wrapper">
+                                                    <img src="{{ asset('storage/img/clock.png') }}" alt="">
+                                                    <p>{{$vacancy->hours . 'h' }}</p>
+                                                </div>
+                                                <div class="wrapper">
+                                                    <img src="{{ asset('storage/img/hat.png') }}" alt="">
+                                                    <p>{{$vacancy->education}}</p>
+                                                </div>
+                                            </div>                                        
 
                                             <div class="function-discription">
                                                 <div class="text-container">

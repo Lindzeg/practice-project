@@ -37,14 +37,17 @@
                         <p>The estimate salary for this vacancy is around € {{$vacancy->salary }} per year. </p>
                         <a>Apply</a> 
                     </div>
-                </div>  
+                </div>
 
-                @if (auth()->user()->employer->id === $vacancy->employer_id)
-                    <div class="button-wrapper">
-                        <a href="{{ route('vacancies.edit', $vacancy->id) }}">Edit vacancy</a>
-                        <button form="delete">Delete vacancy</button>
-                    </div> 
-                @endif 
+                @auth
+                    @if (auth()->user()->employer->id === $vacancy->employer->id)
+                        <div class="button-wrapper">
+                            <a href="{{ route('vacancies.edit', $vacancy->id) }}">Edit vacancy</a>
+                            <button form="delete">Delete vacancy</button>
+                        </div> 
+                    @endif 
+                 @endauth
+
                 <form method="POST" action="/vacancies/{{ $vacancy->id }}" id="delete" class='hidden'>
                     @csrf
                     @method('DELETE')

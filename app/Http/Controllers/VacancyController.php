@@ -44,19 +44,17 @@ class VacancyController extends Controller
         //validate
         request()->validate([
             'title' => ['required', 'min:3'],
+            'description' => ['required', 'min:24'],
             'employment' => ['required'],
             'location' => ['required'],
             'working-hours' => ['required'],
             'education' => ['required'],
-            'salary' => ['required'],
-            'description' => ['required', 'min:24'],
+            'salary' => ['required'],           
         ]);
-        //auth
-        
-        //update
+
         Vacancy::create([
             'title' => request('title'),
-            'employment' => request('employment'),
+            'description' => request('description'),
             'location' => request('location'),
             'hours' => request('working-hours'),
             'employment' => request('employment'),
@@ -72,21 +70,21 @@ class VacancyController extends Controller
     {
         request()->validate([
             'title' => ['required', 'min:3'],
-            'employment' => ['required'],
-            'location' => ['required'],
-            'working-hours' => ['required'],
-            'education' => ['required'],
-            'salary' => ['required'],
             'description' => ['required', 'min:24'],
+            'employment' => ['required',],
+            'location' => ['required', ],
+            'working-hours' => ['required',],
+            'education' => ['required',],
+            'salary' => ['required'],           
         ]);
 
-        if ($vacancy->employer->id->isNot(Auth::user())){
+        if ($vacancy->employer->isNot(Auth::user()->employer)){
             abort(403);
         }
 
         $vacancy->update([
             'title' => request('title'),
-            'employment' => request('employment'),
+            'description' => request('description'),
             'location' => request('location'),
             'hours' => request('working-hours'),
             'employment' => request('employment'),
@@ -95,7 +93,7 @@ class VacancyController extends Controller
             'employer_id' => auth()->user()->employer->id,
         ]);
 
-        return redirect('vacancies/show/'. $job->id);
+        return view('vacancies.show', ['vacancy' => $vacancy]);
     }
 
     public function destroy(Request $request, Vacancy $vacancy)

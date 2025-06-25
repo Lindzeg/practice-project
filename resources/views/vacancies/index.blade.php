@@ -51,7 +51,7 @@
                 @foreach ($vacancies as $vacancy)
                 <div class="card">
                     <h3>{{ $vacancy->title }}</h3>
-                    <p>{{ Str::limit($vacancy->description, 90)}} <a href="vacancies/{{ $vacancy->id }}">read more</a> </p>                  
+                    <p>{{ Str::limit($vacancy->description, 100)}} <a href="vacancies/{{ $vacancy->id }}">read more</a> </p>                  
                     <datetime>{{ $vacancy->employer->company_name . ' ' . ':' . ' ' . $vacancy->created_at }}</datetime>
 
                     <div class="wrapper">

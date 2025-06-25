@@ -23,10 +23,12 @@
                 <p>{{$job->description}}</p>
                 <p>The estimate salary for this job is around € {{$job->salary }} per year. </p>
                 <div>
-                    @if(auth()->user()->id === $job->user_id)
-                        <a href="{{ route('jobs.edit', $job->id) }}">Edit job</a>
-                        <button form="delete">Delete job</button>
-                    @endif
+                    @auth
+                        @if(auth()->user()->id === $job->user_id)
+                            <a href="{{ route('jobs.edit', $job->id) }}">Edit job</a>
+                            <button form="delete">Delete job</button>
+                        @endif
+                    @endauth
                 </div>
             </div>
             <form method="POST" action="/jobs/{{ $job->id }}" id="delete" class='hidden'>

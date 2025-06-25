@@ -105,26 +105,19 @@ main{
                                     @apply w-auto h-10 rounded-md underline  text-slate-700 font-[arial] hover:font-bold;
                                 }
                         }
+                            
+                        .details-wrapper{
+                            @apply flex flex-row justify-center h-auto w-full gap-10;
+                            .wrapper{
+                                @apply flex flex-col justify-center items-center;
+                                img{
+                                    @apply w-6 h-6;
+                                }
+                                p{
 
-                        .vacancy-details{
-                            @apply flex flex-row gap-4 justify-center h-auto w-full;
-                            ul{
-                                @apply flex gap-2 flex-row flex-wrap justify-start w-full;
-                                .row{
-                                    @apply flex flex-col h-auto w-auto p-1  gap-1 text-base;
-                                    .wrapper{
-                                        @apply flex flex-row gap-2 justify-around
-                                         items-center;
-                                        img{
-                                            @apply w-6 h-6;
-                                        }
-                                        p{
-
-                                        }
-                                    }
                                 }
                             }
-
+                                
                         }
 
                         .function-discription{
@@ -243,7 +236,7 @@ main.vacancy{
         .details-wrapper{
             @apply flex flex-row gap-10 justify-start;
             .wrapper{
-                @apply flex flex-row gap-2 justify-around items-center;
+                @apply flex flex-col gap-2 justify-around items-center;
                 img{
                     @apply w-6 h-6;
                 }
@@ -262,7 +255,7 @@ main.vacancy{
         a{
             @apply bg-transparent shadow-none text-indigo-400 hover:underline;
         }
-    }
+    } 
 }
 
 main.vacancies{
@@ -301,7 +294,7 @@ main.vacancies{
     .vacancy-wrapper{
         @apply w-full h-auto p-4 gap-4 flex flex-row flex-wrap justify-center bg-indigo-500;
         .card{
-            @apply w-[30%] h-[20rem] flex flex-col gap-2 p-4 justify-center rounded-md font-[arial] odd:bg-amber-200 even:bg-emerald-400;
+            @apply w-[30%] h-auto flex flex-col gap-2 p-4 justify-center rounded-md font-[arial] odd:bg-amber-200 even:bg-emerald-400;
             
             h3{
                 @apply text-indigo-900 font-bold;
@@ -317,7 +310,7 @@ main.vacancies{
                 @apply text-slate-600;
             }
             .wrapper{
-                @apply flex flex-row gap-2;
+                @apply flex flex-row gap-2 flex-wrap;
                 p{
                     @apply flex flex-col gap-2 text-base font-bold;
                 }

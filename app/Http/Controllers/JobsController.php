@@ -93,7 +93,7 @@ class JobsController extends Controller
             'img_path' => $path,
         ]);
 
-        return view('jobs.show', ['job' => $job,]);;
+        return view('jobs.show', ['job' => $job]);
     }
 
     public function destroy(Request $request, Job $job){
