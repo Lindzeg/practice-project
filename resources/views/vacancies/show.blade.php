@@ -9,8 +9,8 @@
         </x-slot>
 
     <x-slot name="main">
-        <x-main class="vacancy" :vacancy="$vacancy">
-            <div class="vacancy show">                          
+        <x-main class="vacancy show" :vacancy="$vacancy">
+            <div class="vacancy">                          
                 <h2>{{ $vacancy->title}}</h2>               
                 <h4>Author: {{ $vacancy->employer->user->first_name  }}</h4>
                     <div class="details-wrapper">

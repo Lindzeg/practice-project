@@ -9,7 +9,7 @@
 
     <x-slot name="main"
         :vacancies="$vacancies">
-        <x-main class="vacancies">
+        <x-main class="vacancies-index">
 
             <form action="">
                 <div class="heading">
@@ -51,9 +51,6 @@
                 @foreach ($vacancies as $vacancy)
                 <div class="card">
                     <h3>{{ $vacancy->title }}</h3>
-                    <p>{{ Str::limit($vacancy->description, 100)}} <a href="vacancies/{{ $vacancy->id }}">read more</a> </p>                  
-                    <datetime>{{ $vacancy->employer->company_name . ' ' . ':' . ' ' . $vacancy->created_at }}</datetime>
-
                     <div class="wrapper">
                         <p>{{ $vacancy->employment }}</p>
                         <p>{{ $vacancy->location }}</p>
@@ -61,6 +58,8 @@
                         <p>{{ $vacancy->education }}</p>
                         <p>€ {{ $vacancy->salary }}</p>
                     </div>
+                    <p>{{ Str::limit($vacancy->description, 100)}} <a href="vacancies/{{ $vacancy->id }}">read more</a> </p>                  
+                    <datetime>{{ $vacancy->employer->company_name . ' ' . ':' . ' ' . $vacancy->created_at }}</datetime>                  
                 </div>
                 @endforeach
             </div>

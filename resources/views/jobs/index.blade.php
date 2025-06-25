@@ -8,7 +8,7 @@
         </x-slot>
 
     <x-slot name="main">
-        <x-main
+        <x-main class="jobs-index"
             :jobs="$jobs"
             :vacancies="$vacancies"
             :firstVacancies="$firstVacancies"
@@ -60,7 +60,7 @@
                 @endguest
             </section>
 
-            <section class="vacancy">
+            <section class="vacancies-list">
                 <div class="vacancy-wrapper">
                     <h2>Job openings</h2>
                     {{--Initialize Alpine.js with 'open' set to false--}}

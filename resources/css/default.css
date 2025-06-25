@@ -9,7 +9,7 @@
 */
 
 body,html{
-    @apply m-0 w-full h-full
+    @apply m-0 w-full h-full;
 }
 
 body{

@@ -1,4 +1,4 @@
-main{
+main.jobs-index{
     @apply flex flex-col w-full gap-16 h-full p-4 mb-4;
 
     .heading{
@@ -14,7 +14,7 @@ main{
     section.slider{
        @apply h-auto w-full m-auto p-4 flex flex-col items-center gap-0;
         .img-slider{
-            @apply  h-auto w-[80rem] flex flex-row gap-4 justify-start items-start ;
+            @apply  h-auto w-[80rem] flex flex-row gap-4 justify-center items-start ;
             .slide{
                 @apply flex flex-col gap-3 w-auto;
 
@@ -71,7 +71,7 @@ main{
 
     }
 
-    section.vacancy{
+    section.vacancies-list{
         @apply flex flex-row items-start p-4 h-auto w-full  bg-slate-100 ;
         .vacancy-wrapper{
             @apply p-4 h-auto w-1/2 flex flex-col gap-8;
@@ -215,10 +215,10 @@ main.job{
     }
 }
 
-main.vacancy{
-    @apply h-96 w-full p-8 gap-4 flex flex-row justify-between items-start;
-    .vacancy.show{
-        @apply w-1/2 text-left flex flex-col  gap-4 ;
+main.vacancy.show{
+    @apply h-96 w-full h-auto p-8 gap-4 flex flex-row justify-between items-start;
+    .vacancy{
+        @apply w-1/2 h-auto text-left flex flex-col  gap-4 ;
         .text-container{
             @apply w-1/2 flex flex-col gap-4;
             h2{
@@ -258,8 +258,8 @@ main.vacancy{
     } 
 }
 
-main.vacancies{
-    @apply w-full h-auto flex flex-row gap-8 items-start;
+main.vacancies-index{
+    @apply w-full h-auto flex flex-row p-4 gap-8 items-start;
     form{
         @apply w-[40%] flex flex-col justify-center gap-4;
         .heading{
