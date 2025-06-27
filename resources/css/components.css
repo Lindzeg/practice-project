@@ -1,0 +1,75 @@
+    .search-job-comp{
+        @apply w-1/2 p-4 h-full flex flex-col justify-start mt-16;
+        form{
+            @apply w-full h-[33rem] border-2 border-indigo-300 items-center justify-center p-4 rounded-md flex flex-col gap-8 ;
+            h2{
+                @apply text-slate-700;
+            }
+            fieldset{
+                @apply w-[80%] ;
+                input{
+                    @apply w-full p-4 rounded-md font-[arial] focus:outline outline-slate-400 placeholder:text-gray-700;
+                }
+            }
+            button{
+                @apply bg-slate-600 p-4 w-[80%] rounded-md text-white;
+            }
+        }
+    }
+
+     section.create-job{
+        @apply w-full h-96 p-4 flex flex-col gap-4 text-center items-center bg-slate-800 justify-center;
+        .wrapper{
+           @apply w-1/2 h-auto p-4 flex flex-col items-center gap-4;
+            h2{
+                @apply text-indigo-400 text-6xl;
+            }
+            p{
+                @apply text-slate-400  font-[arial];
+            }
+            a{
+                @apply w-1/4 p-2 bg-gradient-to-br  from-purple-600 to-blue-500 rounded-md text-white text-center
+                text-lg hover:shadow-[inset_0_0_18px_#36289e];
+
+            }
+        }
+
+    }
+
+section.hero{
+    @apply w-full h-1/2 mb-44;
+    >.hero-content{
+        @apply p-4 relative h-full flex flex-col gap-5 items-center justify-center ;
+        >h1{
+            @apply text-9xl text-stone-950 z-20 opacity-80 ;
+        }
+        >.img-container{
+            @apply absolute  left-0 top-[-5rem] h-[50rem] w-full  ;
+            >img{
+            @apply  w-full h-full object-cover hue-rotate-180 opacity-40 ;
+            }
+        }
+    }
+}
+
+section.media{
+     @apply w-full h-full p-4 flex items-center justify-center;
+    >.media-content{
+        @apply w-1/2 h-full p-4 flex flex-row gap-4 items-center ;
+        >.image-container{
+            @apply h-[40rem] w-full ;
+            >img{
+                @apply h-full w-full object-cover object-center ;
+            }
+        }
+        >.text-container{
+            @apply text-slate-700 w-full;
+            >h2{
+                @apply mb-4;
+            }
+            >p{
+                @apply font-[arial];
+            }
+        }
+    }
+}

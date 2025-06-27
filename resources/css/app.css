@@ -4,6 +4,7 @@
 @import 'main.css';
 @import 'default.css';
 @import 'forms.css';
+@import 'components.css';
 
 @tailwind base;
 @tailwind components;

@@ -43,22 +43,7 @@
                 </div>
             </section>
 
-            <section class="create-job">
-                @auth
-                    <div class="wrapper">
-                        <h2>Create your own job post</h2>
-                        <p>Do you work in an industry you'd like to talk about? Create your own job post here.</p>
-                        <a href="{{ route('jobs.create') }}">create</a>
-                    </div>
-                    @endauth
-                    @guest
-                        <div class="wrapper">
-                        <h2>Log in to create your own job posts</h2>
-                        <p>Do you work in an industry you'd like to talk about? Create your own job post here.</p>
-                        <a href="/login">log in</a>
-                    </div>
-                @endguest
-            </section>
+            <x-cta.cta-create-job></x-cta.cta-create-job>
 
             <section class="vacancies-list">
                 <div class="vacancy-wrapper">
@@ -171,19 +156,7 @@
                         </ul>
                     </div>
 
-                    <div class="search">
-                        <form action="">
-                            <h2>Look for a job, close to you.</h2>
-                            <fieldset>
-                                <input type="search" placeholder="Search function">
-                            </fieldset>
-
-                            <fieldset>
-                                <input type="search" placeholder="Search location">
-                            </fieldset>
-                            <button>search</button>
-                        </form>
-                    </div>
+                    <x-forms.search-job-form> </x-forms.search-job-form>
             </section>
         </x-main>
     </x-slot>

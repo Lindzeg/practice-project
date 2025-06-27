@@ -9,7 +9,6 @@ use App\Http\Controllers\RegisterUserController;
 use App\Http\Controllers\LoginUserController;
 
 use App\Jobs\TranslateJob;
-use App\Jobs\Dispatchable;
 use App\Models\Job;
 
 Route::get('testmail', function () {
